@@ -4,16 +4,21 @@ http://github.com/jquery/qunit
 
 ## Features
  * the simplest API of the world :)
+ * 100% identical API for client and node (passing all unit tests from QUnit)
  * simple asynchronous testing
  * tests inside of one testfile run synchronous
- * usage via cli or testrunner
- * evry tests file and code run in its own spawned node instance
- 
+ * tests from each file run in its own spawned node instance
+ * usage via CLI or testrunner
 
+## API
+http://docs.jquery.com/QUnit
 
 ## Usage
 
+
+
 ## Run tests
+./bin/runtests
 
     
      

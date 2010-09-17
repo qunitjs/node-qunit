@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var testrunner = require( "../lib/testrunner" ),
+    path = require( "path" );
+
+testrunner.run([
+    {
+        code: path.normalize( __dirname + "/../lib/qunit.js" ),
+        test: path.normalize( __dirname + "/../test/test.js" )
+    },
+    {
+        code: path.normalize( __dirname + "/../lib/qunit.js" ),
+        test: path.normalize( __dirname + "/../test/same.js" )
+    }    
+]);
