@@ -15,15 +15,22 @@ http://docs.jquery.com/QUnit
 
 ## Usage
 
-### using testrunner
+### testrunner
     
     var testrunner = require( "node-qunit/testrunner" );
-
+    
+    // set it to true if you want to report only errors
+    testrunner.options.errorsOnly = false;
+    // set it to false if you want to get error stack in report     
+    testrunner.options.errorStack = true;
+    
+    // one test file
     testrunner.run({
         code: "/path/to/your/code.js",
         test: "/path/to/your/tests.js"
     });
-
+    
+    // array of test files
     testrunner.run([
         {
             code: "/path/to/your/code.js",
@@ -34,8 +41,9 @@ http://docs.jquery.com/QUnit
             test: "/path/to/your/tests.js"
         }    
     ]);
+    
 
-### using CLI
+### CLI
     node cli.js /path/to/your/code.js /path/to/your/tests.js
 
 ## Run tests
