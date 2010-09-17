@@ -15,10 +15,33 @@ http://docs.jquery.com/QUnit
 
 ## Usage
 
+### using testrunner
+    
+    var testrunner = require( "node-qunit/testrunner" );
 
+    testrunner.run({
+        code: "/path/to/your/code.js",
+        test: "/path/to/your/tests.js"
+    });
+
+    testrunner.run([
+        {
+            code: "/path/to/your/code.js",
+            test: "/path/to/your/tests.js"
+        },
+        {
+            code: "/path/to/your/code.js",
+            test: "/path/to/your/tests.js"
+        }    
+    ]);
+
+### using CLI
+    node cli.js /path/to/your/code.js /path/to/your/tests.js
 
 ## Run tests
 ./bin/runtests
 
-    
+## TODO
+ * make all tests work
+ * add test coverage tool  
      
