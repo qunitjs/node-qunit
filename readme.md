@@ -19,6 +19,8 @@ http://docs.jquery.com/QUnit
     
     var testrunner = require( "node-qunit/testrunner" );
     
+    
+    
     // set it to true if you want to report only errors
     testrunner.options.errorsOnly = false;
     // set it to false if you want to get error stack in report     
@@ -41,6 +43,11 @@ http://docs.jquery.com/QUnit
             test: "/path/to/your/tests.js"
         }    
     ]);
+    
+    
+    And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.
+    
+    
     
 
 ### CLI
