@@ -44,8 +44,9 @@ http://docs.jquery.com/QUnit
         }    
     ]);
     
+### And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.    
     
-    And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.
+    
     
     
     
