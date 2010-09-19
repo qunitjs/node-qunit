@@ -54,8 +54,20 @@ http://docs.jquery.com/QUnit
         console.dir(report);
     });    
     
-### And now just write your tests, QUnit API and code, which have to be tested are already loaded and attached to the global context.    
+### Writing tests
 
+QUnit API and code which have to be tested are already loaded and attached to the global context. 
+
+Because nodejs modules reserved "module" namespace we have to redefine it from QUnit namespace.     
+
+    module = QUnit.module;
+
+Basically QUnit API can ba accessed directly from global object or optional via "QUnit" object.
+
+    QUnit.test;
+    
+Some tests examples    
+    
     test("a basic test example", function() {
       ok( true, "this test is fine" );
       var value = "hello";
@@ -99,7 +111,7 @@ http://docs.jquery.com/QUnit
     });    
     
 ### CLI
-    node cli.js /path/to/your/code.js /path/to/your/tests.js
+$ node cli.js /path/to/your/code.js /path/to/your/tests.js
 
 ## Run tests
 $ ./bin/runtests   
