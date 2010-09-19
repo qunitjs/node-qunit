@@ -25,6 +25,8 @@ http://docs.jquery.com/QUnit
     testrunner.options.errorsOnly = false;
     // set it to false if you want to get error stack in report     
     testrunner.options.errorStack = true;
+    // print a summary about all tested stuff after finish
+    testrunner.options.summary = true;
     
     // one test file
     testrunner.run({
@@ -100,7 +102,4 @@ http://docs.jquery.com/QUnit
     node cli.js /path/to/your/code.js /path/to/your/tests.js
 
 ## Run tests
-./bin/runtests
-
-## TODO
- * add test coverage tool     
+./bin/runtests   
