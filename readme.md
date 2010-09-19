@@ -110,7 +110,7 @@ Some tests examples
       same( {test:123}, this.options, "passing test" );
     });    
     
-    testAsync("this is an async test example", 1, function() {
+    asyncTest("this is an async test example", 1, function() {
         setTimeout(function() {
             ok(true, "finished async test");
             start();
