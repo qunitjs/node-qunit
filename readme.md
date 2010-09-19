@@ -6,7 +6,7 @@ http://github.com/jquery/qunit
  * the simplest API of the world :)
  * 100% identical API for client and node (passing all unit tests from QUnit)
  * simple asynchronous testing
- * tests inside of one testfile run synchronous
+ * tests inside of one testfile run synchronous, but every testfile runs async
  * tests from each file run in its own spawned node instance
  * usage via CLI or testrunner
 
@@ -54,7 +54,7 @@ http://docs.jquery.com/QUnit
         console.dir(report);
     });    
     
-### And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.    
+### And now just write your tests, QUnit API and code, which have to be tested are already loaded and attached to the global context.    
 
     test("a basic test example", function() {
       ok( true, "this test is fine" );
@@ -89,12 +89,12 @@ http://docs.jquery.com/QUnit
     
     module("Module C", {
         setup: function() {
-            // use a shared environment for each test
+            // setup a shared environment for each test
             this.options = {test: 123};
         }
     });
     
-    test("some other test", 1, function() {
+    test("this test is using shared environment", 1, function() {
       same( {test:123}, this.options, "passing test" );
     });    
     
@@ -102,4 +102,4 @@ http://docs.jquery.com/QUnit
     node cli.js /path/to/your/code.js /path/to/your/tests.js
 
 ## Run tests
-./bin/runtests   
+$ ./bin/runtests   
