@@ -53,12 +53,49 @@ http://docs.jquery.com/QUnit
     });    
     
 ### And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.    
-    
-    
-    
-    
-    
 
+    test("a basic test example", function() {
+      ok( true, "this test is fine" );
+      var value = "hello";
+      equals( "hello", value, "We expect value to be hello" );
+    });
+    
+    module("Module A");
+    
+    test("first test within module", 1, function() {
+      ok( true, "all pass" );
+    });
+    
+    test("second test within module", 2, function() {
+      ok( true, "all pass" );
+    });
+    
+    module("Module B", {
+        setup: function() {
+            // do some initial stuff before every test for this module
+        },
+        teardown: function() {
+            // do some stuff after every test for this module
+        }
+    });
+    
+    test("some other test", function() {
+      expect(2);
+      equals( true, false, "failing test" );
+      equals( true, true, "passing test" );
+    });
+    
+    module("Module C", {
+        setup: function() {
+            // use a shared environment for each test
+            this.options = {test: 123};
+        }
+    });
+    
+    test("some other test", 1, function() {
+      same( {test:123}, this.options, "passing test" );
+    });    
+    
 ### CLI
     node cli.js /path/to/your/code.js /path/to/your/tests.js
 
@@ -66,7 +103,4 @@ http://docs.jquery.com/QUnit
 ./bin/runtests
 
 ## TODO
- * make all tests work
- * add test coverage tool
- * add a mocking framework 
-     
+ * add test coverage tool     
