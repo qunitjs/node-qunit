@@ -44,6 +44,14 @@ http://docs.jquery.com/QUnit
         }    
     ]);
     
+    // using testrunner callback
+    testrunner.run({
+        code: "/path/to/your/code.js",
+        test: "/path/to/your/tests.js"
+    }, function( report ) {
+        console.dir(report);
+    });    
+    
 ### And now just write your tests, QUnit API and code, which have to be tested is already loaded and attached to global context.    
     
     
@@ -59,5 +67,6 @@ http://docs.jquery.com/QUnit
 
 ## TODO
  * make all tests work
- * add test coverage tool  
+ * add test coverage tool
+ * add a mocking framework 
      
