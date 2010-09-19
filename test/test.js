@@ -1,3 +1,5 @@
+module = QUnit.module;
+
 test("module without setup/teardown (default)", function() {
     expect(1);
     ok(true);
@@ -13,7 +15,7 @@ test("expect in test", 1, function() {
     ok(true);
 });
 
-QUnit.module("setup test", {
+module("setup test", {
     setup: function() {
         ok(true);
     }
@@ -26,7 +28,7 @@ test("module with setup", function() {
 
 var state;
 
-QUnit.module("setup/teardown test", {
+module("setup/teardown test", {
     setup: function() {
         state = true;
         ok(true);
@@ -41,7 +43,7 @@ test("module with setup/teardown", function() {
     ok(true);
 });
 
-QUnit.module("setup/teardown test 2");
+module("setup/teardown test 2");
 
 test("module without setup/teardown", function() {
     expect(1);
@@ -51,7 +53,7 @@ test("module without setup/teardown", function() {
 if (typeof setTimeout !== 'undefined') {
 state = 'fail';
 
-QUnit.module("teardown and stop", {
+module("teardown and stop", {
     teardown: function() {
         equal(state, "done", "Test teardown.");
     }
@@ -66,7 +68,7 @@ test("teardown must be called after test ended", function() {
     }, 13);
 });
 
-QUnit.module("async setup test", {
+module("async setup test", {
     setup: function() {
       stop();
         setTimeout(function(){
@@ -82,12 +84,12 @@ asyncTest("module with async setup", function() {
     start();
 });
 
-QUnit.module("async teardown test", {
+module("async teardown test", {
     teardown: function() {
-        stop();
+    stop();
         setTimeout(function(){
-            ok(true);
-            start();
+        ok(true);
+          start();
         }, 500);
     }
 });
@@ -100,7 +102,7 @@ asyncTest("module with async teardown", function() {
 } // end setTimeout tests
 
 if (typeof asyncTest !== 'undefined') {
-QUnit.module("asyncTest");
+module("asyncTest");
 
 asyncTest("asyncTest", function() {
     expect(2);
@@ -122,7 +124,7 @@ asyncTest("asyncTest", 2, function() {
 });
 } // end asyncTest tests
 
-QUnit.module("save scope", {
+module("save scope", {
     setup: function() {
         this.foo = "bar";
     },
@@ -135,7 +137,7 @@ test("scope check", function() {
     deepEqual(this.foo, "bar");
 });
 
-QUnit.module("simple testEnvironment setup", {
+module("simple testEnvironment setup", {
     foo: "bar",
     bugid: "#5311" // example of meta-data
 });
@@ -149,7 +151,7 @@ test("testEnvironment reset for next test",function() {
     deepEqual(this.foo, "bar");
 });
 
-QUnit.module("testEnvironment with object", {
+module("testEnvironment with object", {
     options:{
         recipe:"soup",
         ingredients:["hamster","onions"]
@@ -166,7 +168,8 @@ test("testEnvironment reset for next test",function() {
     deepEqual(this.options, {recipe:"soup",ingredients:["hamster","onions","carrots"]}, "Is this a bug or a feature? Could do a deep copy") ;
 });
 
-QUnit.module("testEnvironment tests");
+
+module("testEnvironment tests");
 
 function makeurl() {
     var testEnv = QUnit.current_testEnvironment;
@@ -180,9 +183,9 @@ test("makeurl working",function() {
     equal( makeurl(), 'http://example.com/search?q=a%20search%20test', 'makeurl returns a default url if nothing specified in the testEnvironment');
 });
 
-QUnit.module("testEnvironment with makeurl settings", {
+module("testEnvironment with makeurl settings", {
     url:'http://google.com/',
-    q:'another_search_test'
+q:'another_search_test'
 });
 test("makeurl working with settings from testEnvironment", function() {
     equal( makeurl(), 'http://google.com/?q=another_search_test', 'rather than passing arguments, we use test metadata to form the url');
@@ -192,9 +195,8 @@ test("each test can extend the module testEnvironment", {
 }, function() {
     equal( makeurl(), 'http://google.com/?q=hamstersoup', 'url from module, q from test');  
 });
-
 /*
-QUnit.module("jsDump");
+module("jsDump");
 test("jsDump output", function() {
     equals( QUnit.jsDump.parse([1, 2]), "[ 1, 2 ]" );
     equals( QUnit.jsDump.parse({top: 5, left: 0}), "{ \"top\": 5, \"left\": 0 }" );
@@ -204,8 +206,7 @@ test("jsDump output", function() {
     }
 });
 
-
-QUnit.module("assertions");
+module("assertions");
 test("raises", function() {
     function thrower1() {
         throw 'Errored!';
@@ -222,7 +223,7 @@ test("raises", function() {
 });
 */
 /* currently fixture reset depends on jQuery's html() method, can't test that, yet
-QUnit.module("fixture");
+module("fixture");
 test("setup", function() {
     document.getElementById("qunit-fixture").innerHTML = "foobar";
 });
