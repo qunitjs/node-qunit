@@ -23,10 +23,15 @@ http://docs.jquery.com/QUnit
     
     // set it to true if you want to report only errors
     testrunner.options.errorsOnly = false;
+    
     // set it to false if you want to get error stack in report     
     testrunner.options.errorStack = true;
+    
     // print a summary about all tested stuff after finish
     testrunner.options.summary = true;
+    
+    // add paths to require of test environment
+    testrunner.options.paths = require.paths;
     
     // one test file
     testrunner.run({
@@ -119,6 +124,9 @@ Some tests examples
     
 ### CLI
 $ node cli.js /path/to/your/code.js /path/to/your/tests.js
+
+// add require.paths
+$ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path/for/require 
 
 ## Run tests
 $ ./bin/runtests   

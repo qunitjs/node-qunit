@@ -6,7 +6,7 @@ var testrunner = require( "../lib/testrunner" ),
 testrunner.run([
     {
         code: path.normalize( __dirname + "/../lib/qunit.js" ),
-        test: path.normalize( __dirname + "/../test/test.js" )
+        test: path.normalize( __dirname + "/../test/qunit.js" )
     },
     {
         code: path.normalize( __dirname + "/../lib/qunit.js" ),
