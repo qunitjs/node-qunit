@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 
-var testrunner = require( "../lib/testrunner" ),
-    path = require( "path" ),
-    qunit = path.normalize( __dirname + "/../lib/qunit.js" );
-
+var testrunner = require( "../lib/qunit/index" ),
+    path = require( "path" ).normalize( __dirname + "/.." );
+    
 testrunner.run([
     {
-        code: qunit,
-        test: path.normalize( __dirname + "/../test/qunit.js" )
+        code: path + "/lib/qunit/qunit.js",
+        test: path + "/test/qunit.js"
     },
     {
-        code: qunit,
-        test: path.normalize( __dirname + "/../test/same.js" )
-    },
+        code: path + "/lib/qunit/qunit.js",
+        test: path + "/test/same.js"
+    }
+/*    ,
     {
-        code: path.normalize( __dirname + "/../lib/testrunner.js" ),
-        test: path.normalize( __dirname + "/../test/testrunner.js" )
-    }    
+        code: path + "/lib/qunit/index.js",
+        test: path + "/test/testrunner.js"
+    }
+*/        
 ]);

@@ -9,6 +9,7 @@ http://github.com/jquery/qunit
  * tests inside of one testfile run synchronous, but every testfile runs async
  * tests from each file run in its own spawned node instance
  * usage via CLI or testrunner
+ * uses the assert module
 
 ## API
 http://docs.jquery.com/QUnit
@@ -30,9 +31,12 @@ http://docs.jquery.com/QUnit
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
     ok( state, message )
     
-    // A comparison assertion, equivalent to JUnit's assertEquals.
+    // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
     equals( actual, expected, message )
-    
+
+    // A comparison assertion. Uses "===".
+    strictEqual( actual, expected, message )
+
     // A deep recursive comparison assertion, working on primitive types, arrays and objects.
     same( actual, expected, message )
 
@@ -47,9 +51,7 @@ http://docs.jquery.com/QUnit
 
 ### testrunner
     
-    var testrunner = require( "node-qunit/testrunner" );
-    
-    
+    var testrunner = require( "qunit" );
     
     // set it to true if you want to report only errors
     testrunner.options.errorsOnly = false;
@@ -154,10 +156,11 @@ Some tests examples
     });
     
 ### CLI
-$ node cli.js /path/to/your/code.js /path/to/your/tests.js
 
-// add require.paths
-$ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path/for/require 
+    $ node cli.js /path/to/your/code.js /path/to/your/tests.js
+
+    // add require.paths
+    $ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path1/for/require 
 
 ## Run tests
 $ ./bin/runtests   
