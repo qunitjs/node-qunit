@@ -30,9 +30,12 @@ http://docs.jquery.com/QUnit
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
     ok( state, message )
     
-    // A comparison assertion, equivalent to JUnit's assertEquals.
+    // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
     equals( actual, expected, message )
-    
+
+    // A comparison assertion. Uses "===".
+    strictEqual( actual, expected, message )
+
     // A deep recursive comparison assertion, working on primitive types, arrays and objects.
     same( actual, expected, message )
 
@@ -154,10 +157,11 @@ Some tests examples
     });
     
 ### CLI
-$ node cli.js /path/to/your/code.js /path/to/your/tests.js
 
-// add require.paths
-$ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path/for/require 
+    $ node cli.js /path/to/your/code.js /path/to/your/tests.js
+
+    // add require.paths
+    $ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path1/for/require 
 
 ## Run tests
 $ ./bin/runtests   
