@@ -1,3 +1,6 @@
 [submodule "deps/jscoverage"]
 	path = deps/jscoverage
 	url = http://github.com/visionmedia/node-jscoverage.git
+[submodule "deps/parseopts"]
+	path = deps/parseopts
+	url = http://github.com/mde/node-parseopts.git
