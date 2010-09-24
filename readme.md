@@ -10,6 +10,7 @@ http://github.com/jquery/qunit
  * tests from each file run in its own spawned node instance
  * usage via CLI or testrunner
  * uses the assert module
+ * test coverage via http://siliconforks.com/jscoverage
 
 ## API
 http://docs.jquery.com/QUnit
@@ -65,28 +66,34 @@ http://docs.jquery.com/QUnit
     // add paths to require of test environment
     testrunner.options.paths = require.paths;
     
-    // one test file
+    // one code and tests file
     testrunner.run({
         code: "/path/to/your/code.js",
-        test: "/path/to/your/tests.js"
+        tests: "/path/to/your/tests.js"
     });
     
-    // array of test files
+    // one code and multiple tests file
+    testrunner.run({
+        code: "/path/to/your/code.js",
+        tests: ["/path/to/your/tests.js", "/path/to/your/tests1.js"]
+    });    
+    
+    // array of code and test files
     testrunner.run([
         {
             code: "/path/to/your/code.js",
-            test: "/path/to/your/tests.js"
+            tests: "/path/to/your/tests.js"
         },
         {
             code: "/path/to/your/code.js",
-            test: "/path/to/your/tests.js"
+            tests: "/path/to/your/tests.js"
         }    
     ]);
     
     // using testrunner callback
     testrunner.run({
         code: "/path/to/your/code.js",
-        test: "/path/to/your/tests.js"
+        tests: "/path/to/your/tests.js"
     }, function( report ) {
         console.dir(report);
     });    

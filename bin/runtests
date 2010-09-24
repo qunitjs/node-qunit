@@ -2,15 +2,11 @@
 
 var testrunner = require( "../lib/qunit/index" ),
     path = require( "path" ).normalize( __dirname + "/.." );
-    
+
 testrunner.run([
     {
         code: path + "/lib/qunit/qunit.js",
-        test: path + "/test/qunit.js"
-    },
-    {
-        code: path + "/lib/qunit/qunit.js",
-        test: path + "/test/same.js"
+        tests: [ path + "/test/qunit.js",  path + "/test/same.js"]
     }
 /*    ,
     {
