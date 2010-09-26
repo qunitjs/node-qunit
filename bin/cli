@@ -23,9 +23,21 @@ Object.keys( args ).forEach( function( key ) {
     delete args[key]; 
 });
 
-if ( !args.code || !args.tests ) {
-    sys.print("test\n");
-    return;
+if ( !args.code || !args.tests || args.help ) {
+
+    sys.print(
+        '\nUsage: cli "--option value", boolean value can be used.'
+        + '\n'
+        + '\nOptions:'
+        + '\n --errors-only, report only errors'
+        + '\n --error-stack, display error stack'
+        + '\n --summary, display summary report'
+        + '\n --coverage, create tests coverage report'
+        + '\n --paths, add paths to require.paths array'
+        + '\n --coverage-tmp-dir, change temp dir, which is used for jscoverage tool'
+        + '\n'
+    );
+} else {
+    qunit.run({ code: args.code, tests: args.tests });
 }
 
-qunit.run({ code: args.code, tests: args.tests });
