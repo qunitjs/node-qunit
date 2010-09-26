@@ -171,9 +171,3 @@ Some tests examples
 
 ## Run tests
 $ ./bin/runtests   
-
-# JSCoverage
-
-Using JSCoverage 0.3.1 (from the ubuntu universe repositories) resulted
-in a "jscoverage: unknown file type" error.  Updating to the JSCoverage
-0.5.1 from http://siliconforks.com/jscoverage/ resolves this issue.
