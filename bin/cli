@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+
+var sys = require( "sys" ),
+    //qunit = require( "qunit" ),
+    qunit = require( "./../lib/index" ),
+    args = require( "argsparser" ).parse();
+
+/**
+ * Camelize a string like --test-abc-def to --testAbcDef
+ *
+ */ 
+function camelize( str ) {
+    return str.split( "-" ).map( function( str, i ) {
+        if ( str ) {
+            return i === 2 ? str : str.substr(0, 1).toUpperCase() + str.substr(1); 
+        }
+    }).join("");
+}
+
+Object.keys( args ).forEach( function( key ) {
+    args[camelize(key)] = qunit.options[camelize(key)] = args[key];
+    delete args[key]; 
+});
+
+if ( !args.code || !args.tests ) {
+    sys.print("test\n");
+    return;
+}
+
+qunit.run({ code: args.code, tests: args.tests });

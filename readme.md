@@ -54,18 +54,20 @@ http://docs.jquery.com/QUnit
     
     var testrunner = require( "qunit" );
     
-    // set it to true if you want to report only errors
-    testrunner.options.errorsOnly = false;
+    Defaults:
+         
+    {
+        errorsOnly: false, // set it to true if you want to report only errors
+        errorStack: true, // set it to false if you want to get error stack in report
+        summary: true, // print a summary about all tested stuff after finish
+        coverage: true, // display coverage
+        paths: null // add paths to require of test environment
+    }
     
-    // set it to false if you want to get error stack in report     
-    testrunner.options.errorStack = true;
+    // to change any option - change it :)
     
-    // print a summary about all tested stuff after finish
-    testrunner.options.summary = true;
-    
-    // add paths to require of test environment
-    testrunner.options.paths = require.paths;
-    
+    testrunner.options.optionName = value;
+
     // one code and tests file
     testrunner.run({
         code: "/path/to/your/code.js",
@@ -164,10 +166,14 @@ Some tests examples
     
 ### CLI
 
-    $ node cli.js /path/to/your/code.js /path/to/your/tests.js
+    $ ./bin/cli --code ./code.js --tests ./tests.js
 
-    // add require.paths
-    $ node cli.js /path/to/your/code.js /path/to/your/tests.js /path/for/require,/path1/for/require 
+    // additionaly every option can be used
+    $ ./bin/cli --code ./code.js --tests ./tests.js --paths /path/for/require /path1/for/require
+    
+    $ ./bin/cli --code ./code.js --tests ./tests.js --coverage false
+
+    $ ./bin/cli --code ./code.js --tests ./tests.js --summary false
 
 ## Run tests
 $ ./bin/runtests   
