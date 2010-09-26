@@ -12,7 +12,13 @@ http://github.com/jquery/qunit
  * uses the assert module
  * test coverage via http://siliconforks.com/jscoverage
 
+## Installation
+    git clone git@github.com:kof/node-qunit.git
+    git submodule update --init
+    npm install .
+
 ## API
+
 http://docs.jquery.com/QUnit
 
 ### Setup
@@ -168,7 +174,7 @@ Some tests examples
 
     $ ./bin/cli --code ./code.js --tests ./tests.js
 
-    // additionaly every option can be used
+    // additionaly every option can be passed
     $ ./bin/cli --code ./code.js --tests ./tests.js --paths /path/for/require /path1/for/require
     
     $ ./bin/cli --code ./code.js --tests ./tests.js --coverage false
@@ -176,7 +182,8 @@ Some tests examples
     $ ./bin/cli --code ./code.js --tests ./tests.js --summary false
 
 ## Run tests
-$ ./bin/runtests   
+
+    $ make runtests   
 
 ## JSCoverage
 

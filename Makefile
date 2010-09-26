@@ -1,13 +1,10 @@
-install: jscoverage parseopts runtests
+install: jscoverage argsparser runtests
 
 jscoverage:
-	./deps/jscoverage/configure && ./deps/jscoverage/make 
+	cd ./deps/jscoverage/ && ./configure && make 
 
-parseopts:
-	npm install ./deps/parseopts
-
-submodule:
-	git submodule update --init
+argsparser:
+	npm install ./deps/argsparser
 
 runtests:
 	./bin/runtests
