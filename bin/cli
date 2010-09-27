@@ -1,43 +1,63 @@
 #!/usr/bin/env node
 
-
-var sys = require( "sys" ),
-    //qunit = require( "qunit" ),
+var args = require( "argsparser" ).parse(),
     qunit = require( "./../lib/index" ),
-    args = require( "argsparser" ).parse();
+    sys = require( "sys" ),    
+    o = qunit.options,
+    code, tests;
 
-/**
- * Camelize a string like --test-abc-def to --testAbcDef
- *
- */ 
-function camelize( str ) {
-    return str.split( "-" ).map( function( str, i ) {
-        if ( str ) {
-            return i === 2 ? str : str.substr(0, 1).toUpperCase() + str.substr(1); 
-        }
-    }).join("");
-}
-
-Object.keys( args ).forEach( function( key ) {
-    args[camelize(key)] = qunit.options[camelize(key)] = args[key];
-    delete args[key]; 
-});
-
-if ( !args.code || !args.tests || args.help ) {
-
-    sys.print(
-        '\nUsage: cli "--option value", boolean value can be used.'
+var help = ''
+        + '\nUsage: cli [options] value (boolean value can be used)'
         + '\n'
         + '\nOptions:'
-        + '\n --errors-only, report only errors'
-        + '\n --error-stack, display error stack'
-        + '\n --summary, display summary report'
-        + '\n --coverage, create tests coverage report'
-        + '\n --paths, add paths to require.paths array'
-        + '\n --coverage-tmp-dir, change temp dir, which is used for jscoverage tool'
-        + '\n'
-    );
-} else {
-    qunit.run({ code: args.code, tests: args.tests });
+        + '\n -c, --code path to code you want to test'
+        + '\n -t, --tests path to tests (space separated)'
+        + '\n -o, --errors-only report only errors'
+        + '\n -e, --error-stack display error stack'
+        + '\n -s, --summary display summary report'
+        + '\n -C, --cov create tests coverage report'
+        + '\n -p, --paths, add paths to require.paths array'
+        + '\n -t, --coverage-tmp-dir change temp dir, which is used for jscoverage tool'
+        + '\n -h, --help show this help'
+        + '\n';
+
+for ( var key in args ) {
+    switch( key ) {
+        case "-c": 
+        case "--code":
+            code = args[key];
+            break;
+        case "-t": 
+        case "--tests":
+            tests = args[key];
+            break;
+        case "-o":
+        case "--errors-only":
+            o.errorsOnly = args[key];
+            break;
+        case "-e":
+        case "--error-stack":
+            o.errorStack = args[key];
+            break;
+        case "-s":
+        case "--summary":
+            o.summary = args[key];
+            break;
+        case "--cov":
+            o.coverage = args[key];
+            break;
+        case "-p":
+        case "--paths":
+            o.paths = args[key];
+            break;
+        case "--tmp":
+            o.coverageTmpDir = args[key];
+            break; 
+        case "--help":
+        case "-h":
+            sys.print( help );
+            return; 
+    }
 }
 
+qunit.run({ code: code, tests: tests });
