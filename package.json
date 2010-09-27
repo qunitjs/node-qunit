@@ -9,7 +9,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:kof/node-qunit.git"
+        "url": "http://github.com/kof/node-qunit.git"
     },
     "keywords": [ "TDD", "QUnit", "unit testing", "tests" ],
     "directories": { "lib": "./lib" },
