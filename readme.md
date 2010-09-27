@@ -172,7 +172,7 @@ Some tests examples
 
     $ ./bin/cli -c ./code.js -t ./tests.js
 
-    $ ./bin/cli --c ./code.js --t ./tests.js -p /path/for/require /path1/for/require --cov false
+    $ ./bin/cli -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
     
     $ ./bin/cli --help
 
