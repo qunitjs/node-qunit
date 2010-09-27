@@ -170,14 +170,11 @@ Some tests examples
     
 ### CLI
 
-    $ ./bin/cli --code ./code.js --tests ./tests.js
+    $ ./bin/cli -c ./code.js -t ./tests.js
 
-    // additionaly every option can be passed
-    $ ./bin/cli --code ./code.js --tests ./tests.js --paths /path/for/require /path1/for/require
+    $ ./bin/cli --c ./code.js --t ./tests.js -p /path/for/require /path1/for/require --cov false
     
-    $ ./bin/cli --code ./code.js --tests ./tests.js --coverage false
-
-    $ ./bin/cli --code ./code.js --tests ./tests.js --summary false
+    $ ./bin/cli --help
 
 ## Run tests
 
