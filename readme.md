@@ -13,9 +13,7 @@ http://github.com/jquery/qunit
  * test coverage via http://siliconforks.com/jscoverage
 
 ## Installation
-    git clone git@github.com:kof/node-qunit.git
-    git submodule update --init
-    npm install .
+    npm install qunit
 
 ## API
 
