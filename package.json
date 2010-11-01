@@ -13,7 +13,7 @@
     },
     "keywords": [ "TDD", "QUnit", "unit testing", "tests" ],
     "directories": { "lib": "./lib" },
-    "engines": { "node": ">= 0.3.0" },
+    "engines": { "node": ">= 0.2.4" },
     "scripts": { "install": "make install"  },
     "licenses": [
         { 
