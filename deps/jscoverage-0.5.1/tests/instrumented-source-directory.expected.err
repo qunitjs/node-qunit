@@ -1,0 +1,2 @@
+jscoverage: file script.js in the source directory appears to be already instrumented
+Try `jscoverage --help' for more information.
