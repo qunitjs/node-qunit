@@ -1,10 +1,10 @@
-install: jscoverage argsparser runtests
+install: jscoverage argsparser testrunner
 
 jscoverage:
-	cd ./deps/jscoverage/ && ./configure && make && make install
+	cd ./deps/jscoverage/ && ./configure && make && install jscoverage /usr/local/bin
 
 argsparser:
 	npm install ./deps/argsparser
 
-runtests:
-	./bin/runtests
+testrunner:
+	./bin/testrunner
