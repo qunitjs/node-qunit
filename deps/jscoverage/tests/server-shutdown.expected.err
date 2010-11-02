@@ -1,2 +1,0 @@
-GET /server-shutdown.sh
-POST /jscoverage-shutdown
