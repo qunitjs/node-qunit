@@ -2,7 +2,7 @@
 
 var args = require( "argsparser" ).parse(),
     qunit = require( "./../lib/index" ),
-    sys = require( "sys" ),    
+    util = require( "util" ),    
     o = qunit.options,
     code, tests;
 
@@ -55,7 +55,7 @@ for ( var key in args ) {
             break; 
         case "--help":
         case "-h":
-            sys.print( help );
+            util.print( help );
             return; 
     }
 }

@@ -178,7 +178,7 @@ Some tests examples
 
 ## Run tests
 
-    $ make runtests   
+    $ ./bin/testrunner   
 
 ## JSCoverage
 
