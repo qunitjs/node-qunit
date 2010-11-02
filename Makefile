@@ -1,8 +1,14 @@
+PREFIX ?= /usr/local
+JSCOV = deps/jscoverage/node-jscoverage
+
 install: jscoverage argsparser testrunner
+	
+jscoverage: make-jscov
+	install $(JSCOV) $(PREFIX)/bin
 
-jscoverage:
-	cd ./deps/jscoverage/ && ./configure && make && install jscoverage /usr/local/bin
-
+make-jscov:
+	cd deps/jscoverage && ./configure && make && mv jscoverage node-jscoverage
+	
 argsparser:
 	npm install ./deps/argsparser
 
