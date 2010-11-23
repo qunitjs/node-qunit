@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-var args = require( "argsparser" ).parse(),
-    qunit = require( "./../lib/index" ),
+var root = __dirname + "/..",
+	args = require( root + "/deps/argsparser" ).parse(),
+    qunit = require( root + "/lib" ),
     util = require( "util" ),    
     o = qunit.options,
     code, tests;
