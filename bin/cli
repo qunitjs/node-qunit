@@ -13,6 +13,7 @@ var help = ''
         + '\nOptions:'
         + '\n -c, --code path to code you want to test'
         + '\n -t, --tests path to tests (space separated)'
+        + '\n -d, --deps dependency paths - files required before code (space separated)'
         + '\n -o, --errors-only report only errors'
         + '\n -e, --error-stack display error stack'
         + '\n -s, --summary display summary report'
@@ -31,6 +32,10 @@ for ( var key in args ) {
         case "-t": 
         case "--tests":
             tests = args[key];
+            break;
+        case "-d": 
+        case "--deps":
+            o.deps = args[key];
             break;
         case "-o":
         case "--errors-only":
@@ -54,8 +59,9 @@ for ( var key in args ) {
         case "--tmp":
             o.coverageTmpDir = args[key];
             break; 
-        case "--help":
         case "-h":
+        case "-?":
+        case "--help":
             util.print( help );
             return; 
     }

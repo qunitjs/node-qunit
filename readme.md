@@ -102,7 +102,22 @@ http://docs.jquery.com/QUnit
         tests: "/path/to/your/tests.js"
     }, function( report ) {
         console.dir(report);
-    });    
+    });   
+    
+    // specify dependency
+    testrunner.run({
+    	deps: "/path/to/your/dependency.js",
+        code: "/path/to/your/code.js",
+        tests: "/path/to/your/tests.js"
+    });
+    
+    // specify multiple dependencies
+    testrunner.run({
+    	deps: ["/path/to/your/dependency1.js", "/path/to/your/dependency2.js"],
+        code: "/path/to/your/code.js",
+        tests: "/path/to/your/tests.js"
+    });     
+    
     
 ### Writing tests
 
@@ -170,11 +185,13 @@ Some tests examples
     
 ### CLI
 
+Some usage examples, read full cli api doc using "--help":
+
+    $ ./bin/cli --help
+
     $ ./bin/cli -c ./code.js -t ./tests.js
 
     $ ./bin/cli -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
-    
-    $ ./bin/cli --help
 
 ## Run tests
 

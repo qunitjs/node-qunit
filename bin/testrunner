@@ -8,10 +8,4 @@ testrunner.run([
         code: root + "/lib/qunit.js",
         tests: [ root + "/test/qunit.js",  root + "/test/same.js"]
     }
-/*    ,
-    {
-        code: root + "/lib/index.js",
-        test: root + "/test/testrunner.js"
-    }
-*/        
 ]);
