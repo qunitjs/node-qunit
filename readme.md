@@ -121,6 +121,9 @@ http://docs.jquery.com/QUnit
         tests: "/path/to/your/tests.js"
     });     
     
+### Debbugging
+Use stderr if you want to debug something  while running via quni.
+	require("util").debug("This will not brake qunit report");    
     
 ### Writing tests
 
