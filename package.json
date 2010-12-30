@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "A port of QUnit unit testing framework to nodejs",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         { "name": "John Resig", "email": "jeresig@gmail.com" }, 
@@ -13,6 +13,7 @@
     },
     "keywords": [ "TDD", "QUnit", "unit testing", "tests" ],
     "directories": { "lib": "./lib" },
+    "main": "./lib/qunit.js",
     "engines": { "node": ">= 0.3.0" },
     "scripts": {
         "install": "make install"  
