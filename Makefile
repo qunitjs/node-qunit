@@ -1,7 +1,7 @@
-install: jscoverage testrunner
-	
-jscoverage:
+install:
 	cd deps/jscoverage && ./configure && make
 
-testrunner:
-	./bin/testrunner
+test:
+	qunit -c ./lib/api.js -t ./test/api.js ./test/same.js
+
+.PHONY: install test

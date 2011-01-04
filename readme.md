@@ -57,7 +57,17 @@ http://docs.jquery.com/QUnit
 
 ## Usage
 
-### testrunner
+### Command line
+
+Some usage examples, read full cli api doc using "--help":
+
+    $ qunit -h
+
+    $ qunit -c ./code.js -t ./tests.js
+
+    $ qunit -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
+
+### via api
     
     var testrunner = require( "qunit" );
     
@@ -121,11 +131,11 @@ http://docs.jquery.com/QUnit
         tests: "/path/to/your/tests.js"
     });     
     
-### Debbugging
+## Debbugging
 Use stderr if you want to debug something  while running via quni.
 	require("util").debug("This will not brake qunit report");    
     
-### Writing tests
+## Writing tests
 
 QUnit API and code which have to be tested are already loaded and attached to the global context. 
 
@@ -189,19 +199,9 @@ Some tests examples
         }, 100);
     });
     
-### CLI
-
-Some usage examples, read full cli api doc using "--help":
-
-    $ ./bin/cli --help
-
-    $ ./bin/cli -c ./code.js -t ./tests.js
-
-    $ ./bin/cli -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
-
 ## Run tests
 
-    $ ./bin/testrunner   
+    $ make test  
 
 ## JSCoverage
 
