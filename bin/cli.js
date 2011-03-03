@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var root = __dirname + "/..",
 	args = require( root + "/deps/argsparser" ).parse(),
     qunit = require( root ),
