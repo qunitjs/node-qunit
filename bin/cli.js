@@ -5,13 +5,14 @@ var root = __dirname + "/..",
     qunit = require( root ),
     util = require( "util" ),    
     o = qunit.options,
-    code, tests;
+    code, as = null, tests;
 
 var help = ''
         + '\nUsage: cli [options] value (boolean value can be used)'
         + '\n'
         + '\nOptions:'
         + '\n -c, --code path to code you want to test'
+        + '\n -a, --as variable name used to expose code module to tests'
         + '\n -t, --tests path to tests (space separated)'
         + '\n -d, --deps dependency paths - files required before code (space separated)'
         + '\n -o, --errors-only report only errors'
@@ -28,6 +29,10 @@ for ( var key in args ) {
         case "-c": 
         case "--code":
             code = args[key];
+            break;
+        case "-a":
+        case "--as":
+            as = args[key];
             break;
         case "-t": 
         case "--tests":
@@ -67,4 +72,4 @@ for ( var key in args ) {
     }
 }
 
-qunit.run({ code: code, tests: tests });
+qunit.run({ code: code, as: as, tests: tests });
