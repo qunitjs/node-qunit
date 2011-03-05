@@ -45,9 +45,9 @@ var help = ''
         + '\n -o, --errors-only report only errors'
         + '\n -e, --error-stack display error stack'
         + '\n -s, --summary display summary report'
-        + '\n -C, --cov create tests coverage report'
+        + '\n --cov create tests coverage report'
         + '\n -p, --paths, add paths to require.paths array'
-        + '\n -t, --coverage-tmp-dir change temp dir, which is used for jscoverage tool'
+        + '\n --tmp change temp dir, which is used for jscoverage tool'
         + '\n -h, --help show this help'
         + '\n';
 
