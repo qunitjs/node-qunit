@@ -5,7 +5,7 @@ var root = __dirname + "/..",
     qunit = require( root ),
     util = require( "util" ),
     o = qunit.options,
-    code, as = null, tests;
+    code, tests;
 
 var help = ''
         + '\nUsage: cli [options] value (boolean value can be used)'
@@ -27,7 +27,7 @@ for ( var key in args ) {
     switch( key ) {
         case "-c":
         case "--code":
-            code = args[key];
+            code = {file: args[key]};
             break;
         case "-t":
         case "--tests":
