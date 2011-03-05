@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 var root = __dirname + "/..",
-	args = require( root + "/deps/argsparser" ).parse(),
+  args = require( root + "/deps/argsparser" ).parse(),
     qunit = require( root ),
-    util = require( "util" ),    
+    util = require( "util" ),
     o = qunit.options,
     code, as = null, tests;
 
@@ -12,7 +12,6 @@ var help = ''
         + '\n'
         + '\nOptions:'
         + '\n -c, --code path to code you want to test'
-        + '\n -a, --as variable name used to expose code module to tests'
         + '\n -t, --tests path to tests (space separated)'
         + '\n -d, --deps dependency paths - files required before code (space separated)'
         + '\n -o, --errors-only report only errors'
@@ -26,19 +25,15 @@ var help = ''
 
 for ( var key in args ) {
     switch( key ) {
-        case "-c": 
+        case "-c":
         case "--code":
             code = args[key];
             break;
-        case "-a":
-        case "--as":
-            as = args[key];
-            break;
-        case "-t": 
+        case "-t":
         case "--tests":
             tests = args[key];
             break;
-        case "-d": 
+        case "-d":
         case "--deps":
             o.deps = args[key];
             break;
@@ -63,13 +58,13 @@ for ( var key in args ) {
             break;
         case "--tmp":
             o.coverageTmpDir = args[key];
-            break; 
+            break;
         case "-h":
         case "-?":
         case "--help":
             util.print( help );
-            return; 
+            return;
     }
 }
 
-qunit.run({ code: code, as: as, tests: tests });
+qunit.run({ code: code, tests: tests });
