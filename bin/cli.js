@@ -7,6 +7,34 @@ var root = __dirname + "/..",
     o = qunit.options,
     code, tests;
 
+/**
+ * Parses a code or dependency argument, returning an object defining the
+ * specified file path or module name. Any input ending in ".js" will be
+ * treated as a file path, otherwise it will be treated as a module name.
+ * The exports of the module will be exposed globally by default. To expose
+ * exports as a named variable, prefix the resource with the desired variable
+ * name followed by a colon.
+ * This allows you to more accurately recreate browser usage of QUnit, for
+ * tests which are portable between browser runtime environmemts and Node.js.
+ */
+function parseTestResource ( input ) {
+    var parts = input.split( ":" ),
+        requirePath = parts.pop(),
+        resource = {};
+
+    if ( /\.js$/.test( requirePath ) ) {
+        resource.file = requirePath;
+    } else {
+        resource.module = requirePath;
+    }
+
+    if ( parts.length === 1 ) {
+        resource.as = parts[0];
+    }
+
+    return resource;
+}
+
 var help = ''
         + '\nUsage: cli [options] value (boolean value can be used)'
         + '\n'
@@ -17,9 +45,9 @@ var help = ''
         + '\n -o, --errors-only report only errors'
         + '\n -e, --error-stack display error stack'
         + '\n -s, --summary display summary report'
-        + '\n -C, --cov create tests coverage report'
+        + '\n --cov create tests coverage report'
         + '\n -p, --paths, add paths to require.paths array'
-        + '\n -t, --coverage-tmp-dir change temp dir, which is used for jscoverage tool'
+        + '\n --tmp change temp dir, which is used for jscoverage tool'
         + '\n -h, --help show this help'
         + '\n';
 
@@ -27,15 +55,22 @@ for ( var key in args ) {
     switch( key ) {
         case "-c": 
         case "--code":
-            code = args[key];
+            code = parseTestResource(args[key]);
             break;
         case "-t": 
         case "--tests":
+            // it's assumed that tests arguments will be file paths whose
+            // contents are to be made global. This is consistent with use
+            // of QUnit in browsers.
             tests = args[key];
             break;
         case "-d": 
         case "--deps":
-            o.deps = args[key];
+            var deps = args[key];
+            if ( !Array.isArray ( deps ) ) {
+                deps = [deps];
+            }
+            o.deps = deps.map(parseTestResource);
             break;
         case "-o":
         case "--errors-only":
