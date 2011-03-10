@@ -25,7 +25,7 @@ function parsePath( path ) {
         };
 
     if ( parts.length === 2 ) {
-        resource.as = parts[0];
+        resource.namespace = parts[0];
         resource.path = parts[1];
     }
 
