@@ -67,6 +67,10 @@ Some usage examples, read full cli api doc using "--help":
 
     $ qunit -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
 
+By default, code and dependencies are added to the global scope. To specify
+requiring them into a namespace object, prefix the path or module name with the
+variable name to be used for the namespace object, followed by a colon:
+
     $ qunit -c code:./code.js -d utils:utilmodule -r ./time.js
 
 ### via api
