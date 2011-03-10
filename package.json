@@ -1,23 +1,26 @@
 {
     "name": "qunit",
     "description": "A port of QUnit unit testing framework to nodejs",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         { "name": "John Resig", "email": "jeresig@gmail.com" }, 
-        { "name": "Jörn Zaefferer", "email": "joern.zaefferer@gmail.com" }
+        { "name": "Jörn Zaefferer", "email": "joern.zaefferer@gmail.com" },
+        { "name": "Jonathan Buchanan"}
     ],
     "repository": {
         "type": "git",
         "url": "http://github.com/kof/node-qunit.git"
     },
     "keywords": [ "TDD", "QUnit", "unit testing", "tests" ],
-    "directories": { "lib": "./lib" },
     "bin": { "qunit": "./bin/cli.js" },
-    "main": "./lib/qunit.js",
     "engines": { "node": ">= 0.3.0" },
     "scripts": {
         "install": "make install"  
+    },
+    "dependencies": {
+        "sharedjs": ">= 0.0.2",
+        "argsparser": ">= 0.0.4"
     },
     "licenses": [
         { 

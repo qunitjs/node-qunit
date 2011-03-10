@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var root = __dirname + "/..",
-  args = require( root + "/deps/argsparser" ).parse(),
+    args = require("argsparser").parse(),
     qunit = require( root ),
     util = require( "util" ),
     o = qunit.options,
@@ -9,27 +9,24 @@ var root = __dirname + "/..",
 
 /**
  * Parses a code or dependency argument, returning an object defining the
- * specified file path or module name. Any input ending in ".js" will be
- * treated as a file path, otherwise it will be treated as a module name.
+ * specified file path or/and module name.
  * The exports of the module will be exposed globally by default. To expose
  * exports as a named variable, prefix the resource with the desired variable
  * name followed by a colon.
  * This allows you to more accurately recreate browser usage of QUnit, for
  * tests which are portable between browser runtime environmemts and Node.js.
+ * @param {string} path to file or module name to require.
+ * @return {Object} resource
  */
-function parseTestResource ( input ) {
-    var parts = input.split( ":" ),
-        requirePath = parts.pop(),
-        resource = {};
+function parsePath( path ) {
+    var parts = path.split( ":" ),
+        resource = {
+            path: path
+        };
 
-    if ( /\.js$/.test( requirePath ) ) {
-        resource.file = requirePath;
-    } else {
-        resource.module = requirePath;
-    }
-
-    if ( parts.length === 1 ) {
+    if ( parts.length === 2 ) {
         resource.as = parts[0];
+        resource.path = parts[1];
     }
 
     return resource;
@@ -55,7 +52,7 @@ for ( var key in args ) {
     switch( key ) {
         case "-c":
         case "--code":
-            code = parseTestResource(args[key]);
+            code = parsePath(args[key]);
             break;
         case "-t":
         case "--tests":
@@ -66,11 +63,11 @@ for ( var key in args ) {
             break;
         case "-d":
         case "--deps":
-            var deps = args[key];
-            if ( !Array.isArray ( deps ) ) {
-                deps = [deps];
+            o.deps = args[key];
+            if ( !Array.isArray ( o.deps ) ) {
+                o.deps = [o.deps];
             }
-            o.deps = deps.map(parseTestResource);
+            o.deps = o.deps.map(parsePath);
             break;
         case "-o":
         case "--errors-only":

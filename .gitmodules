@@ -1,6 +1,3 @@
-[submodule "deps/argsparser"]
-	path = deps/argsparser
-	url = http://github.com/kof/node-argsparser.git
 [submodule "deps/jscoverage"]
 	path = deps/jscoverage
 	url = http://github.com/visionmedia/node-jscoverage.git
