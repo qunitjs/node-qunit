@@ -158,7 +158,9 @@ variable name to be used for the namespace object, followed by a colon:
     });
 
 ## Debbugging
-Use stderr if you want to debug something  while running via quni.
+Use stderr if you want to debug something  while running via qunit.
+	console.error("This will not brake qunit report");
+	// or
     require("util").debug("This will not brake qunit report");
 
 ## Writing tests
