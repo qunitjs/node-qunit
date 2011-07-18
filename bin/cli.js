@@ -50,6 +50,9 @@ var help = ''
 
 for ( var key in args ) {
     switch( key ) {
+		case "node":
+			// Skip the 'node' argument
+			break;
         case "-c":
         case "--code":
             code = parsePath(args[key]);
@@ -98,5 +101,9 @@ for ( var key in args ) {
             return;
     }
 }
-
+if( !code && !tests ) {
+	util.print( help );
+	util.print( "\nBoth --code and --tests arguments are required\n" );
+	return;
+}
 qunit.run({ code: code, tests: tests });
