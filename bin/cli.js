@@ -101,7 +101,7 @@ for ( var key in args ) {
             return;
     }
 }
-if( !code && !tests ) {
+if( !code || !tests ) {
 	util.print( help );
 	util.print( "\nBoth --code and --tests arguments are required\n" );
 	return;
