@@ -124,6 +124,19 @@ asyncTest("asyncTest", 2, function() {
 });
 } // end asyncTest tests
 
+test("sync", 2, function() {
+    stop();
+    setTimeout(function() {
+        ok(true);
+        start();
+    }, 13);
+    stop();
+    setTimeout(function() {
+        ok(true);
+        start();
+    }, 125);
+});
+
 module("save scope", {
     setup: function() {
         this.foo = "bar";
