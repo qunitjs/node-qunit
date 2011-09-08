@@ -1,4 +1,4 @@
-module = QUnit.module
+QUnit.module("CLI");
 
 test("Dependency module required as a namespace object", function() {
     strictEqual(typeof testns1 != "undefined", true);

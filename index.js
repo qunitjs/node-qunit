@@ -1,1 +1,1 @@
-module.exports = require("./lib/qunit");
+module.exports = require("./lib/testrunner");
