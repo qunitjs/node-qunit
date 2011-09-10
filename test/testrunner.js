@@ -1,13 +1,21 @@
-var fixtures = __dirname + '/fixtures';
+var a = require('assert'),
+    fixtures = __dirname + '/fixtures',
+    tr = require('../lib/testrunner');
 
-test("run method", function() {
-    stop()
-    run({
-        code: fixtures + '/testrunner-code.js',
-        tests: fixtures + '/testrunner-tests.js',
-        coverage: false
-    }, function(res) {
-        ok(true, 'assertion');
-        start();
-    });
+tr.summary = false;
+
+tr.run({
+    code: fixtures + '/testrunner-code.js',
+    tests: fixtures + '/testrunner-tests.js',
+    coverage: false
+}, function(res) {
+      var stat = { 
+              files: 1,
+              tests: 2,
+              assertions: 5,
+              failed: 2,
+              passed: 3 
+          };
+          
+    a.deepEqual(stat, res, 'stats are correct');
 });
