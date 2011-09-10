@@ -2,7 +2,7 @@ var a = require('assert'),
     fixtures = __dirname + '/fixtures',
     tr = require('../lib/testrunner');
 
-tr.summary = false;
+tr.options.summary = false;
 
 tr.run({
     code: fixtures + '/testrunner-code.js',
@@ -19,3 +19,5 @@ tr.run({
           
     a.deepEqual(stat, res, 'stats are correct');
 });
+
+console.log('All tests done');
