@@ -12,7 +12,7 @@
     },
    "keywords": ["TDD","QUnit","unit testing","tests"],
    "bin": {"qunit": "./bin/cli.js"},
-   "engines": {"node": ">= 0.4.0"},
+   "engines": {"node": ">= 0.5.0"},
    "scripts": {
        "install": "make install" 
     },
