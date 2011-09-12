@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-var root = __dirname + "/..",
-    args = require("argsparser").parse(),
-    qunit = require( root ),
-    util = require( "util" ),
-    o = qunit.options,
+var root = __dirname + '/..',
+    args = require('argsparser').parse(),
+    testrunner = require( root ),
+    util = require( 'util' ),
+    o = testrunner.options,
     code, tests;
 
 /**
@@ -19,7 +19,7 @@ var root = __dirname + "/..",
  * @return {Object} resource
  */
 function parsePath( path ) {
-    var parts = path.split( ":" ),
+    var parts = path.split( ':' ),
         resource = {
             path: path
         };
@@ -50,60 +50,61 @@ var help = ''
 
 for ( var key in args ) {
     switch( key ) {
-		case "node":
+		case 'node':
 			// Skip the 'node' argument
 			break;
-        case "-c":
-        case "--code":
+        case '-c':
+        case '--code':
             code = parsePath(args[key]);
             break;
-        case "-t":
-        case "--tests":
+        case '-t':
+        case '--tests':
             // it's assumed that tests arguments will be file paths whose
             // contents are to be made global. This is consistent with use
             // of QUnit in browsers.
             tests = args[key];
             break;
-        case "-d":
-        case "--deps":
+        case '-d':
+        case '--deps':
             o.deps = args[key];
             if ( !Array.isArray ( o.deps ) ) {
                 o.deps = [o.deps];
             }
             o.deps = o.deps.map(parsePath);
             break;
-        case "-o":
-        case "--errors-only":
+        case '-o':
+        case '--errors-only':
             o.errorsOnly = args[key];
             break;
-        case "-e":
-        case "--error-stack":
+        case '-e':
+        case '--error-stack':
             o.errorStack = args[key];
             break;
-        case "-s":
-        case "--summary":
+        case '-s':
+        case '--summary':
             o.summary = args[key];
             break;
-        case "--cov":
+        case '--cov':
             o.coverage = args[key];
             break;
-        case "-p":
-        case "--paths":
+        case '-p':
+        case '--paths':
             o.paths = args[key];
             break;
-        case "--tmp":
+        case '--tmp':
             o.coverageTmpDir = args[key];
             break;
-        case "-h":
-        case "-?":
-        case "--help":
+        case '-h':
+        case '-?':
+        case '--help':
             util.print( help );
             return;
     }
 }
 if( !code || !tests ) {
 	util.print( help );
-	util.print( "\nBoth --code and --tests arguments are required\n" );
+	util.print( '\nBoth --code and --tests arguments are required\n' );
 	return;
 }
-qunit.run({ code: code, tests: tests });
+
+testrunner.run({ code: code, tests: tests });
