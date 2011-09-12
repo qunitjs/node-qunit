@@ -14,7 +14,7 @@
    "bin": {"qunit": "./bin/cli.js"},
    "engines": {"node": ">= 0.5.0"},
    "scripts": {
-       "install": "make install" 
+       "test": "make test" 
     },
    "dependencies": {
        "underscore": ">= 1.1.7",
