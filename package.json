@@ -16,11 +16,11 @@
     "scripts": {
         "test": "make test" 
     },
-    "dependencies": {
-        "underscore": ">= 1.1.7",
-        "argsparser": ">= 0.0.6",
-        "cli-table": ">= 0.0.1",
-        "bunker": ">= 0.1.1"
+   "dependencies": {
+       "underscore": ">= 1.1.7",
+       "argsparser": ">= 0.0.6",
+       "cli-table": ">= 0.0.1",
+       "bunker": ">= 0.1.1"
     },
     "devDependencies": {
         "chainer": ">= 0.0.5"
