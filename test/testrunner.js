@@ -1,30 +1,22 @@
 var a = require('assert'),
-    fixtures = __dirname + '/fixtures',
-    tr = require('../lib/testrunner'),
+    chainer = require('chainer');
+    
+var tr = require('../lib/testrunner'),
     log = require('../lib/log');
 
+var fixtures = __dirname + '/fixtures',
+    chain = chainer();
+
 tr.options.summary = false;
+//tr.options.assertions = true;
 
-var tests = [];
+// reset log stats every time .next is called
+chain.next = function() {
+    log.reset();
+    return chainer.prototype.next.apply(this, arguments);    
+};
 
-/**
- * Mini utility to run tests sync
- */
-var next = start = (function() {
-    var current = 0;
-    
-    return function() {
-        if (tests[current]) {
-            log.reset();
-            tests[current]();
-        } else {
-            console.log(tests.length + ' tests done');
-        } 
-        current++;
-    };
-}());
-
-tests.push(function() {
+chain.add('base testrunner', function() {
     tr.run({
         code: fixtures + '/testrunner-code.js',
         tests: fixtures + '/testrunner-tests.js',
@@ -39,37 +31,37 @@ tests.push(function() {
               };
               
         a.deepEqual(stat, res, 'base testrunner test works');
-        next();
+        chain.next();
     });
 });
 
-tests.push(function() {
+chain.add('attach code to global', function() {
     tr.run({
         code: fixtures + '/child-code-global.js',
         tests: fixtures + '/child-tests-global.js',
         coverage: false
     }, function(res) {
-          var stat = { 
-                  files: 1,
-                  tests: 1,
-                  assertions: 2,
-                  failed: 0,
-                  passed: 2 
-              };
+        var stat = { 
+                files: 1,
+                tests: 1,
+                assertions: 2,
+                failed: 0,
+                passed: 2 
+            };
               
         a.deepEqual(stat, res, 'attaching code to global works');
-        next();
+        chain.next();
     });
 });    
 
-tests.push(function() {
+chain.add('attach code to a namespace', function() {
     tr.run({
         code: {
             path: fixtures + '/child-code-namespace.js',
             namespace: 'testns'
         },
         tests: fixtures + '/child-tests-namespace.js',
-        coverage: false,
+        coverage: false
     }, function(res) {
           var stat = { 
                   files: 1,
@@ -80,9 +72,34 @@ tests.push(function() {
               };
               
         a.deepEqual(stat, res, 'attaching code to specified namespace works');
-        next();
+        chain.next();
     });
 });
 
-start();
+chain.add('async testing logs', function() {
+    tr.run({
+        code: fixtures + '/async-code.js',
+        tests: fixtures + '/async-test.js',
+        coverage: false
+    }, function(res) {
+          var stat = { 
+                  files: 1,
+                  tests: 2,
+                  assertions: 4,
+                  failed: 0,
+                  passed: 4 
+              };
+        
+        a.deepEqual(stat, res, 'async code testing works');
+        chain.next();
+    });
+});
+
+
+
+chain.add(function() {
+    console.log('All tests done');    
+});
+
+chain.start();
 

@@ -1,28 +1,31 @@
 {
-   "name": "qunit",
-   "description": "A port of QUnit unit testing framework to nodejs",
-   "version": "0.2.0",
-   "author": "Oleg Slobodskoi <oleg008@gmail.com>",
-   "contributors": [
+    "name": "qunit",
+    "description": "A port of QUnit unit testing framework to nodejs",
+    "version": "0.2.0pre",
+    "author": "Oleg Slobodskoi <oleg008@gmail.com>",
+    "contributors": [
         {"name": "Jonathan Buchanan"}
     ],
-   "repository": {
-       "type": "git",
-       "url": "http: //github.com/kof/node-qunit.git"
+    "repository": {
+        "type": "git",
+        "url": "http: //github.com/kof/node-qunit.git"
     },
-   "keywords": ["TDD","QUnit","unit testing","tests"],
-   "bin": {"qunit": "./bin/cli.js"},
-   "engines": {"node": ">= 0.5.0"},
-   "scripts": {
-       "test": "make test" 
+    "keywords": ["TDD", "QUnit", "unit", "testing", "tests", "async"],
+    "bin": {"qunit": "./bin/cli.js"},
+    "engines": {"node": ">= 0.5.0"},
+    "scripts": {
+        "test": "make test" 
     },
-   "dependencies": {
-       "underscore": ">= 1.1.7",
-       "argsparser": ">= 0.0.6",
-       "cli-table": ">= 0.0.1",
-       "bunker": ">= 0.1.1"
+    "dependencies": {
+        "underscore": ">= 1.1.7",
+        "argsparser": ">= 0.0.6",
+        "cli-table": ">= 0.0.1",
+        "bunker": ">= 0.1.1"
     },
-   "licenses": [
+    "devDependencies": {
+        "chainer": ">= 0.0.5"
+    },
+    "licenses": [
         { 
            "type": "MIT",
            "url": "http: //www.opensource.org/licenses/mit-license.php"
