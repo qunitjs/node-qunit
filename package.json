@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "A port of QUnit unit testing framework to nodejs",
-    "version": "0.2.0pre",
+    "version": "0.2.1pre",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"}
@@ -20,7 +20,8 @@
        "underscore": ">= 1.1.7",
        "argsparser": ">= 0.0.6",
        "cli-table": ">= 0.0.1",
-       "bunker": ">= 0.1.1"
+       "bunker": ">= 0.1.1",
+       "tracejs": ">= 0.1.2"
     },
     "devDependencies": {
         "chainer": ">= 0.0.5"
