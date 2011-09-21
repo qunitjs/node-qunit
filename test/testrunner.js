@@ -29,8 +29,8 @@ chain.add('base testrunner', function() {
                   failed: 2,
                   passed: 3 
               };
-              
-        a.deepEqual(stat, res, 'base testrunner test works');
+
+        a.deepEqual(stat, res, 'base testrunner test');
         chain.next();
     });
 });
