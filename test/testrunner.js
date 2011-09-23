@@ -7,8 +7,10 @@ var tr = require('../lib/testrunner'),
 var fixtures = __dirname + '/fixtures',
     chain = chainer();
 
+tr.options.assertions = false;
+tr.options.tests = false;
 tr.options.summary = false;
-//tr.options.assertions = true;
+tr.options.globalSummary = false;
 
 // reset log stats every time .next is called
 chain.next = function() {
