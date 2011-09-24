@@ -13,7 +13,18 @@ http://github.com/jquery/qunit
  * test coverage via http://siliconforks.com/jscoverage
 
 ## Installation
+
+To install the latest release:
+
     npm install qunit
+
+To install the latest stable release
+
+    npm install qunit@stable
+
+At this moment the latest release depends on the 0.5.x (UNSTABLE) series of node.
+Install `qunit@stable` unless you are prepared to upgrade to the unstable node.
+See https://github.com/joyent/node/issues/search?q=unstable for many issues with using the unstable releases.
 
 ## API
 
