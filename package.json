@@ -1,10 +1,11 @@
 {
     "name": "qunit",
     "description": "A port of QUnit unit testing framework to nodejs",
-    "version": "0.2.5pre",
+    "version": "0.2.6",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
-        {"name": "Jonathan Buchanan"}
+        {"name": "Jonathan Buchanan"},
+        {"name": "Ashar Voultoiz"}
     ],
     "repository": {
         "type": "git",
@@ -12,7 +13,7 @@
     },
     "keywords": ["TDD", "QUnit", "unit", "testing", "tests", "async"],
     "bin": {"qunit": "./bin/cli.js"},
-    "engines": {"node": ">= 0.5.0"},
+    "engines": {"node": ">= 0.6.0"},
     "scripts": {
         "test": "make test" 
     },
