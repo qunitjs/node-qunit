@@ -14,12 +14,14 @@ http://github.com/jquery/qunit
 
 ## Installation
 Using Node Package Manager:
+
     npm install qunit
 
 From git:
-	git clone https://github.com/kof/node-qunit.git
-	git submodule init
-	git submodule update
+
+    git clone https://github.com/kof/node-qunit.git
+    git submodule init
+    git submodule update
 
 ## API
 
