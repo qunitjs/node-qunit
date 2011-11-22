@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "A port of QUnit unit testing framework to nodejs",
-    "version": "0.2.6",
+    "version": "0.2.8",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
@@ -15,7 +15,7 @@
     "bin": {"qunit": "./bin/cli.js"},
     "engines": {"node": "0.6.x"},
     "scripts": {
-        "test": "make test" 
+        "test": "make test"
     },
    "dependencies": {
        "underscore": ">= 1.1.7",
@@ -28,7 +28,7 @@
         "chainer": ">= 0.0.5"
     },
     "licenses": [
-        { 
+        {
            "type": "MIT",
            "url": "http: //www.opensource.org/licenses/mit-license.php"
         }

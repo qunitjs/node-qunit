@@ -1,11 +1,32 @@
 #!/usr/bin/env node
 
+var util = require('util'),
+    argsparser = require('argsparser'),
+    fs = require('fs');
+
 var root = __dirname + '/..',
-    args = require('argsparser').parse(),
-    testrunner = require( root ),
-    util = require( 'util' ),
+    args = argsparser.parse(),
+    testrunner = require(root),
     o = testrunner.options,
-    code, tests;
+    code, tests,
+    help;
+
+help = ''
+    + '\nUsage: cli [options] value (boolean value can be used)'
+    + '\n'
+    + '\nOptions:'
+    + '\n -c, --code path to code you want to test'
+    + '\n -t, --tests path to tests (space separated)'
+    + '\n -d, --deps dependency paths - files required before code (space separated)'
+    + '\n -o, --errors-only report only errors'
+    + '\n -e, --error-stack display error stack'
+    + '\n -s, --summary display summary report'
+    + '\n --cov create tests coverage report'
+    + '\n -p, --paths, add paths to require.paths array'
+    + '\n --tmp change temp dir, which is used for jscoverage tool'
+    + '\n -h, --help show this help'
+    + '\n -v, --version show module version'
+    + '\n';
 
 /**
  * Parses a code or dependency argument, returning an object defining the
@@ -18,13 +39,13 @@ var root = __dirname + '/..',
  * @param {string} path to file or module name to require.
  * @return {Object} resource
  */
-function parsePath( path ) {
-    var parts = path.split( ':' ),
+function parsePath(path) {
+    var parts = path.split(':'),
         resource = {
             path: path
         };
 
-    if ( parts.length === 2 ) {
+    if (parts.length === 2) {
         resource.namespace = parts[0];
         resource.path = parts[1];
     }
@@ -32,24 +53,8 @@ function parsePath( path ) {
     return resource;
 }
 
-var help = ''
-        + '\nUsage: cli [options] value (boolean value can be used)'
-        + '\n'
-        + '\nOptions:'
-        + '\n -c, --code path to code you want to test'
-        + '\n -t, --tests path to tests (space separated)'
-        + '\n -d, --deps dependency paths - files required before code (space separated)'
-        + '\n -o, --errors-only report only errors'
-        + '\n -e, --error-stack display error stack'
-        + '\n -s, --summary display summary report'
-        + '\n --cov create tests coverage report'
-        + '\n -p, --paths, add paths to require.paths array'
-        + '\n --tmp change temp dir, which is used for jscoverage tool'
-        + '\n -h, --help show this help'
-        + '\n';
-
-for ( var key in args ) {
-    switch( key ) {
+for (var key in args) {
+    switch(key) {
 		case 'node':
 			// Skip the 'node' argument
 			break;
@@ -67,7 +72,7 @@ for ( var key in args ) {
         case '-d':
         case '--deps':
             o.deps = args[key];
-            if ( !Array.isArray ( o.deps ) ) {
+            if (!Array.isArray (o.deps)) {
                 o.deps = [o.deps];
             }
             o.deps = o.deps.map(parsePath);
@@ -94,16 +99,24 @@ for ( var key in args ) {
         case '--tmp':
             o.coverageTmpDir = args[key];
             break;
+        case '-v':
+        case '--version':
+            util.print(
+                JSON.parse(
+                    fs.readFileSync(__dirname + '/../package.json')
+                ).version + '\n'
+            );
+            return;
         case '-h':
         case '-?':
         case '--help':
-            util.print( help );
+            util.print(help);
             return;
     }
 }
-if( !code || !tests ) {
-	util.print( help );
-	util.print( '\nBoth --code and --tests arguments are required\n' );
+if(!code || !tests) {
+	util.print(help);
+	util.print('\nBoth --code and --tests arguments are required\n');
 	return;
 }
 
