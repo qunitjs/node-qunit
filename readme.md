@@ -3,14 +3,14 @@
 http://github.com/jquery/qunit
 
 ## Features
- * the simplest API of the world :)
- * 100% identical API for client and node (passing all unit tests from QUnit)
- * simple asynchronous testing
- * tests inside of one testfile run synchronous, but every testfile runs async
- * tests from each file run in its own spawned node instance
- * usage via CLI or testrunner
- * uses the assert module
- * test coverage via http://siliconforks.com/jscoverage
+ * the simplest API of the world, especially for asynchronous testing
+ * you can write tests in TDD or BDD style depending on your task and test type
+ * you can run tests in browser if there is no dependencies to node
+ * you are using the same testing API for client and server side code
+ * tests inside of one testfile run synchronous, but every testfile runs parallel
+ * tests from each file run in its own spawned node process
+ * usage via CLI or testrunner API
+ * test coverage jscoverage is removed, node-bunker have to be implemented #26
 
 ## Installation
 
