@@ -13,6 +13,7 @@ http://github.com/jquery/qunit
  * test coverage via http://siliconforks.com/jscoverage
 
 ## Installation
+
 Using Node Package Manager:
 
     npm install qunit
@@ -23,57 +24,63 @@ From git:
     git submodule init
     git submodule update
 
+To install the latest release:
+
+    npm install qunit
+
+To install the latest stable release
+
+    npm install qunit@stable
+
 ## API
 
 http://docs.jquery.com/QUnit
 
 ### Setup
     // Add a test to run.
-    test( name, expected, test )
+    test(name, expected, test)
 
     // Add an asynchronous test to run. The test must include a call to start().
-    asyncTest( name, expected, test )
+    asyncTest(name, expected, test)
 
     // Specify how many assertions are expected to run within a test.
-    expect( amount );
+    expect(amount);
 
     // Separate tests into modules.
-    module( name, lifecycle )
+    module(name, lifecycle)
 
 ### Assertions
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
-    ok( state, message )
+    ok(state, message)
 
     // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
-    equals( actual, expected, message )
+    equal(actual, expected, message)
 
     // A comparison assertion. Uses "===".
-    strictEqual( actual, expected, message )
+    strictEqual(actual, expected, message)
 
     // A deep recursive comparison assertion, working on primitive types, arrays and objects.
-    same( actual, expected, message )
+    same(actual, expected, message)
 
     // Assertion to test if a callback throws an exception when run.
-    raises( actual, message )
+    raises(actual, message)
 
 ### Asynchronous Testing
     // Start running tests again after the testrunner was stopped.
     start()
 
     // Stop the testrunner to wait to async tests to run. Call start() to continue.
-    stop( timeout )
+    stop(timeout)
 
 ## Usage
 
 ### Command line
 
-Some usage examples, read full cli api doc using "--help":
+Read full cli api doc using "--help" or "-h":
 
     $ qunit -h
 
     $ qunit -c ./code.js -t ./tests.js
-
-    $ qunit -c ./code.js -t ./tests.js -p /path/for/require /path1/for/require --cov false
 
 By default, code and dependencies are added to the global scope. To specify
 requiring them into a namespace object, prefix the path or module name with the
@@ -83,20 +90,35 @@ variable name to be used for the namespace object, followed by a colon:
 
 ### via api
 
-    var testrunner = require( "qunit" );
+    var testrunner = require("qunit");
 
     Defaults:
 
-    {
-        errorsOnly: false, // set it to true if you want to report only errors
-        errorStack: true, // set it to false if you want to get error stack in report
-        summary: true, // print a summary about all tested stuff after finish
-        coverage: true, // display coverage
-        paths: null // add paths to require of test environment
-    }
+        {
 
-    // to change any option - change it :)
+            // log allassertions messages
+            assertions: true,
 
+            // log all tests messages
+            tests: true,
+
+            // log summary
+            summary: true,
+
+            // log global summary - for all files
+            globalSummary: true,
+
+            // run test coverage tool
+            coverage: false,
+
+            // define dependencies, which are required then before code
+            deps: null,
+
+            // define namespace your code will be attached to on global['your namespace']
+            namespace: null
+        }
+
+    // change any option for all tests globally
     testrunner.options.optionName = value;
 
     // one code and tests file
@@ -133,7 +155,7 @@ variable name to be used for the namespace object, followed by a colon:
     testrunner.run({
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    }, function( report ) {
+    }, function(report) {
         console.dir(report);
     });
 
@@ -165,12 +187,6 @@ variable name to be used for the namespace object, followed by a colon:
         tests: "/path/to/your/tests.js"
     });
 
-## Debbugging
-Use stderr if you want to debug something  while running via qunit.
-	console.error("This will not brake qunit report");
-	// or
-    require("util").debug("This will not brake qunit report");
-
 ## Writing tests
 
 QUnit API and code which have to be tested are already loaded and attached to the global context.
@@ -186,19 +202,19 @@ Basically QUnit API can ba accessed directly from global object or optional via 
 Some tests examples
 
     test("a basic test example", function() {
-      ok( true, "this test is fine" );
+      ok(true, "this test is fine");
       var value = "hello";
-      equals( "hello", value, "We expect value to be hello" );
+      equals("hello", value, "We expect value to be hello");
     });
 
     module("Module A");
 
     test("first test within module", 1, function() {
-      ok( true, "all pass" );
+      ok(true, "all pass");
     });
 
     test("second test within module", 2, function() {
-      ok( true, "all pass" );
+      ok(true, "all pass");
     });
 
     module("Module B", {
@@ -212,8 +228,8 @@ Some tests examples
 
     test("some other test", function() {
       expect(2);
-      equals( true, false, "failing test" );
-      equals( true, true, "passing test" );
+      equals(true, false, "failing test");
+      equals(true, true, "passing test");
     });
 
     module("Module C", {
@@ -224,13 +240,15 @@ Some tests examples
     });
 
     test("this test is using shared environment", 1, function() {
-      same( {test:123}, this.options, "passing test" );
+      same({test:123}, this.options, "passing test");
     });
 
-    asyncTest("this is an async test example", 2, function() {
+    test("this is an async test example", function() {
+        expect(2);
+        stop();
         setTimeout(function() {
             ok(true, "finished async test");
-            strictEqual( true, true, "Strict equal assertion uses ===" );
+            strictEqual(true, true, "Strict equal assertion uses ===");
             start();
         }, 100);
     });
@@ -239,8 +257,7 @@ Some tests examples
 
     $ make test
 
-## JSCoverage
+## Coverage
 
-Using JSCoverage 0.3.1 (from the ubuntu universe repositories) resulted
-in a "jscoverage: unknown file type" error.  Updating to the JSCoverage
-0.5.1 from http://siliconforks.com/jscoverage/ resolves this issue.
+Jscoverage is removed due to a lot of installation problems and bad api,
+node-bunker is planned to use but not implemented yet.
