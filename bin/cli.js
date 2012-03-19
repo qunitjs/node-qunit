@@ -120,4 +120,12 @@ if(!code || !tests) {
 	return;
 }
 
-testrunner.run({ code: code, tests: tests });
+testrunner.run({ code: code, tests: tests }, function(err, stats) {
+    if (err) {
+        console.error(new Error(err));
+        process.exit(1);
+        return;
+    }
+
+    process.exit(stats.failed > 0 ? 1 : 0);
+});

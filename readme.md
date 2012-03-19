@@ -95,20 +95,26 @@ variable name to be used for the namespace object, followed by a colon:
     Defaults:
 
         {
-            // log allassertions messages
-            assertions: true,
 
-            // log expected and actual values for failed tests
-            errors: true,
+            // logging options
+            log: {
 
-            // log all tests messages
-            tests: true,
+                // log assertions overview
+                assertions: true,
 
-            // log summary
-            summary: true,
+                // log expected and actual values for failed tests
+                errors: true,
 
-            // log global summary - for all files
-            globalSummary: true,
+                // log tests overview
+                tests: true,
+
+                // log summary
+                summary: true,
+
+                // log global summary (all files)
+                globalSummary: true,
+
+            },
 
             // run test coverage tool
             coverage: false,
@@ -128,19 +134,19 @@ variable name to be used for the namespace object, followed by a colon:
     testrunner.run({
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
     // require code into a namespace object, rather than globally
     testrunner.run({
         code: {path: "/path/to/your/code.js", namespace: "code"},
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
     // one code and multiple tests file
     testrunner.run({
         code: "/path/to/your/code.js",
         tests: ["/path/to/your/tests.js", "/path/to/your/tests1.js"]
-    });
+    }, callback);
 
     // array of code and test files
     testrunner.run([
@@ -152,13 +158,13 @@ variable name to be used for the namespace object, followed by a colon:
             code: "/path/to/your/code.js",
             tests: "/path/to/your/tests.js"
         }
-    ]);
+    ], callback);
 
     // using testrunner callback
     testrunner.run({
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    }, function(report) {
+    }, function(err, report) {
         console.dir(report);
     });
 
@@ -167,28 +173,28 @@ variable name to be used for the namespace object, followed by a colon:
         deps: "/path/to/your/dependency.js",
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
     // dependencies can be modules or files
     testrunner.run({
         deps: "modulename",
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
     // dependencies can required into a namespace object
     testrunner.run({
         deps: {path: "utilmodule", namespace: "utils"},
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
     // specify multiple dependencies
     testrunner.run({
         deps: ["/path/to/your/dependency1.js", "/path/to/your/dependency2.js"],
         code: "/path/to/your/code.js",
         tests: "/path/to/your/tests.js"
-    });
+    }, callback);
 
 ## Writing tests
 
