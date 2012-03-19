@@ -1,5 +1,6 @@
 var a = require('assert'),
-    chainer = require('chainer');
+    chainer = require('chainer'),
+    _ = require('underscore');
 
 var tr = require('../lib/testrunner'),
     log = require('../lib/log');
@@ -7,10 +8,14 @@ var tr = require('../lib/testrunner'),
 var fixtures = __dirname + '/fixtures',
     chain = chainer();
 
-tr.options.assertions = false;
-tr.options.tests = false;
-tr.options.summary = false;
-tr.options.globalSummary = false;
+_.extend(tr.options, {
+    assertions: false,
+    tests: false,
+    summary: false,
+    globalSummary: false,
+    errors: false,
+    assertions: false
+});
 
 // reset log stats every time .next is called
 chain.next = function() {

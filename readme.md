@@ -95,9 +95,11 @@ variable name to be used for the namespace object, followed by a colon:
     Defaults:
 
         {
-
             // log allassertions messages
             assertions: true,
+
+            // log expected and actual values for failed tests
+            errors: true,
 
             // log all tests messages
             tests: true,
@@ -117,6 +119,7 @@ variable name to be used for the namespace object, followed by a colon:
             // define namespace your code will be attached to on global['your namespace']
             namespace: null
         }
+
 
     // change any option for all tests globally
     testrunner.options.optionName = value;
