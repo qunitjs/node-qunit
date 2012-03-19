@@ -30,7 +30,7 @@ chain.add('base testrunner', function() {
                   failed: 2,
                   passed: 3
               };
-
+        delete res.runtime;
         a.deepEqual(stat, res, 'base testrunner test');
         chain.next();
     });
@@ -49,6 +49,7 @@ chain.add('attach code to global', function() {
                 passed: 2
             };
 
+        delete res.runtime;
         a.deepEqual(stat, res, 'attaching code to global works');
         chain.next();
     });
@@ -70,6 +71,7 @@ chain.add('attach code to a namespace', function() {
                   passed: 3
               };
 
+        delete res.runtime;
         a.deepEqual(stat, res, 'attaching code to specified namespace works');
         chain.next();
     });
@@ -88,6 +90,7 @@ chain.add('async testing logs', function() {
                   passed: 4
               };
 
+        delete res.runtime;
         a.deepEqual(stat, res, 'async code testing works');
         chain.next();
     });
