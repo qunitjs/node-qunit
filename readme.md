@@ -56,11 +56,20 @@ http://docs.jquery.com/QUnit
     // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
     equal(actual, expected, message)
 
+    // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
+    notEqual(actual, expected, message)
+
+    // A deep recursive comparison assertion, working on primitive types, arrays and objects.
+    deepEqual(actual, expected, message)
+
+    // A deep recursive comparison assertion, working on primitive types, arrays and objects, with the result inverted, passing // when some property isn't equal.
+    notDeepEqual(actual, expected, message)
+
     // A comparison assertion. Uses "===".
     strictEqual(actual, expected, message)
 
-    // A deep recursive comparison assertion, working on primitive types, arrays and objects.
-    same(actual, expected, message)
+    // A stricter comparison assertion then notEqual. Uses "===".
+    notStrictEqual(actual, expected, message)
 
     // Assertion to test if a callback throws an exception when run.
     raises(actual, message)
