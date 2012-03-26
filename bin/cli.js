@@ -18,12 +18,8 @@ help = ''
     + '\n -c, --code path to code you want to test'
     + '\n -t, --tests path to tests (space separated)'
     + '\n -d, --deps dependency paths - files required before code (space separated)'
-    + '\n -o, --errors-only report only errors'
-    + '\n -e, --error-stack display error stack'
-    + '\n -s, --summary display summary report'
+    + '\n -l, --log logging options, json have to be used'
     + '\n --cov create tests coverage report'
-    + '\n -p, --paths, add paths to require.paths array'
-    + '\n --tmp change temp dir, which is used for jscoverage tool'
     + '\n -h, --help show this help'
     + '\n -v, --version show module version'
     + '\n';
@@ -72,22 +68,14 @@ for (var key in args) {
         case '-d':
         case '--deps':
             o.deps = args[key];
-            if (!Array.isArray (o.deps)) {
+            if (!Array.isArray(o.deps)) {
                 o.deps = [o.deps];
             }
             o.deps = o.deps.map(parsePath);
             break;
-        case '-o':
-        case '--errors-only':
-            o.errorsOnly = args[key];
-            break;
-        case '-e':
-        case '--error-stack':
-            o.errorStack = args[key];
-            break;
-        case '-s':
-        case '--summary':
-            o.summary = args[key];
+        case '-l':
+        case '--log':
+            eval('o.log = ' + args[key]);
             break;
         case '--cov':
             o.coverage = args[key];
@@ -95,9 +83,6 @@ for (var key in args) {
         case '-p':
         case '--paths':
             o.paths = args[key];
-            break;
-        case '--tmp':
-            o.coverageTmpDir = args[key];
             break;
         case '-v':
         case '--version':

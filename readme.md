@@ -95,7 +95,7 @@ By default, code and dependencies are added to the global scope. To specify
 requiring them into a namespace object, prefix the path or module name with the
 variable name to be used for the namespace object, followed by a colon:
 
-    $ qunit -c code:./code.js -d utils:utilmodule -r ./time.js
+    $ qunit -c code:./code.js -d utils:utilmodule -t ./time.js
 
 ### via api
 
@@ -105,39 +105,36 @@ variable name to be used for the namespace object, followed by a colon:
 
         {
 
-            // logging options
-            log: {
+            // log assertions overview
+            assertions: true,
 
-                // log assertions overview
-                assertions: true,
+            // log expected and actual values for failed tests
+            errors: true,
 
-                // log expected and actual values for failed tests
-                errors: true,
+            // log tests overview
+            tests: true,
 
-                // log tests overview
-                tests: true,
+            // log summary
+            summary: true,
 
-                // log summary
-                summary: true,
+            // log global summary (all files)
+            globalSummary: true,
 
-                // log global summary (all files)
-                globalSummary: true,
-
-            },
-
-            // run test coverage tool
-            coverage: false,
-
-            // define dependencies, which are required then before code
-            deps: null,
-
-            // define namespace your code will be attached to on global['your namespace']
-            namespace: null
+            // log currently testing code file
+            testing: true
         }
 
 
     // change any option for all tests globally
     testrunner.options.optionName = value;
+
+    // or use setup function
+    testrunner.setup({
+        log: {
+            summary: true
+        }
+    });
+
 
     // one code and tests file
     testrunner.run({

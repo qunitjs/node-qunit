@@ -8,7 +8,7 @@ var tr = require('../lib/testrunner'),
 var fixtures = __dirname + '/fixtures',
     chain = chainer();
 
-_.extend(tr.options, {
+_.extend(tr.options.log, {
     assertions: false,
     tests: false,
     summary: false,
@@ -27,7 +27,7 @@ chain.add('base testrunner', function() {
     tr.run({
         code: fixtures + '/testrunner-code.js',
         tests: fixtures + '/testrunner-tests.js',
-    }, function(res) {
+    }, function(err, res) {
           var stat = {
                   files: 1,
                   tests: 2,
@@ -45,7 +45,7 @@ chain.add('attach code to global', function() {
     tr.run({
         code: fixtures + '/child-code-global.js',
         tests: fixtures + '/child-tests-global.js',
-    }, function(res) {
+    }, function(err, res) {
         var stat = {
                 files: 1,
                 tests: 1,
@@ -67,7 +67,7 @@ chain.add('attach code to a namespace', function() {
             namespace: 'testns'
         },
         tests: fixtures + '/child-tests-namespace.js',
-    }, function(res) {
+    }, function(err, res) {
           var stat = {
                   files: 1,
                   tests: 1,
@@ -86,7 +86,7 @@ chain.add('async testing logs', function() {
     tr.run({
         code: fixtures + '/async-code.js',
         tests: fixtures + '/async-test.js',
-    }, function(res) {
+    }, function(err, res) {
           var stat = {
                   files: 1,
                   tests: 2,
@@ -102,7 +102,7 @@ chain.add('async testing logs', function() {
 });
 
 chain.add(function() {
-    console.log('All tests done');
+    console.log('\nAll tests done');
 });
 
 chain.start();
