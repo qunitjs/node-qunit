@@ -8,14 +8,9 @@ var tr = require('../lib/testrunner'),
 var fixtures = __dirname + '/fixtures',
     chain = chainer();
 
-_.extend(tr.options.log, {
-    assertions: false,
-    tests: false,
-    summary: false,
-    globalSummary: false,
-    errors: false,
-    assertions: false
-});
+tr.options.log = {
+    testing: true
+};
 
 // reset log stats every time .next is called
 chain.next = function() {
