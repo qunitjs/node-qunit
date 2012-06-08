@@ -95,10 +95,10 @@ chain.add('async testing logs', function() {
     }, function(err, res) {
           var stat = {
                   files: 1,
-                  tests: 2,
-                  assertions: 4,
+                  tests: 4,
+                  assertions: 6,
                   failed: 0,
-                  passed: 4
+                  passed: 6
               };
 
         delete res.runtime;
