@@ -9,6 +9,17 @@ var fixtures = __dirname + '/fixtures',
     chain = chainer();
 
 tr.options.log = {
+    // log assertions overview
+    // assertions: true,
+    // log expected and actual values for failed tests
+    //errors: true,
+    // log tests overview
+    // tests: true,
+    // log summary
+    // summary: true,
+    // log global summary (all files)
+    // globalSummary: true,
+    // log currently testing code file
     testing: true
 };
 
