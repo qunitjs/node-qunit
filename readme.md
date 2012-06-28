@@ -1,42 +1,30 @@
-## This is a port of QUnit unit testing framework to nodejs
+## QUnit testing framework for nodejs.
+
+http://qunitjs.com
 
 http://github.com/jquery/qunit
 
-## Features
- * the simplest API of the world, especially for asynchronous testing
- * you can write tests in TDD or BDD style depending on your task and test type
- * you can run tests in browser if there is no dependencies to node
- * you are using the same testing API for client and server side code
- * tests inside of one testfile run synchronous, but every testfile runs parallel
- * tests from each file run in its own spawned node process
- * usage via CLI or testrunner API
- * test coverage jscoverage is removed, node-bunker have to be implemented #26
+### Features
 
-## Installation
+- cli
+- testrunner api
+- test coverage via jscoverage is removed, node-bunker have to be implemented #26
+- tests inside of one testfile run synchronous, but every testfile runs parallel
+- tests from each file run in its own spawned node process
+- same API for client and server side code (original QUnit is used)
+- the simplest API of the world, especially for asynchronous testing
+- you can write tests in TDD or BDD style depending on your task and test type
+- you can run the same tests in browser if there is no dependencies to node
 
-Using Node Package Manager:
+### Installation
 
-    npm install qunit
+    npm i qunit
 
-From git:
-
-    git clone https://github.com/kof/node-qunit.git
-    git submodule init
-    git submodule update
-
-To install the latest release:
-
-    npm install qunit
-
-To install the latest stable release
-
-    npm install qunit@stable
-
-## API
+### API
 
 http://docs.jquery.com/QUnit
 
-### Setup
+#### Setup
     // Add a test to run.
     test(name, expected, test)
 
@@ -49,7 +37,7 @@ http://docs.jquery.com/QUnit
     // Separate tests into modules.
     module(name, lifecycle)
 
-### Assertions
+#### Assertions
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
     ok(state, message)
 
@@ -74,16 +62,16 @@ http://docs.jquery.com/QUnit
     // Assertion to test if a callback throws an exception when run.
     raises(actual, message)
 
-### Asynchronous Testing
+#### Asynchronous Testing
     // Start running tests again after the testrunner was stopped.
     start()
 
     // Stop the testrunner to wait to async tests to run. Call start() to continue.
     stop(timeout)
 
-## Usage
+### Usage
 
-### Command line
+#### Command line
 
 Read full cli api doc using "--help" or "-h":
 
@@ -97,7 +85,7 @@ variable name to be used for the namespace object, followed by a colon:
 
     $ qunit -c code:./code.js -d utils:utilmodule -t ./time.js
 
-### via api
+#### via api
 
     var testrunner = require("qunit");
 
@@ -214,7 +202,7 @@ variable name to be used for the namespace object, followed by a colon:
         tests: "/path/to/your/tests.js"
     }, callback);
 
-## Writing tests
+### Writing tests
 
 QUnit API and code which have to be tested are already loaded and attached to the global context.
 
@@ -280,11 +268,12 @@ Some tests examples
         }, 100);
     });
 
-## Run tests
+### Run tests
 
-    $ make test
+    npm i
+    make test
 
-## Coverage
+### Coverage
 
 Jscoverage is removed due to a lot of installation problems and bad api,
 node-bunker is planned to use but not implemented yet.
