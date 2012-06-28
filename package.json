@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "QUnit testing framework for nodejs",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
@@ -25,7 +25,8 @@
        "qunit": "https://github.com/jquery/qunit/tarball/v1.8.0"
     },
     "devDependencies": {
-        "chainer": "0.0.5"
+        "chainer": "0.0.5",
+        "timekeeper": "0.0.2"
     },
     "optionalDependencies": {
        "bunker": "0.1.2"

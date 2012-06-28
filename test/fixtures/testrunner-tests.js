@@ -13,3 +13,15 @@ test('myAsyncMethod test', function() {
         start();
     });
 })
+
+test('circular reference', function() {
+    equal(global, global, 'test global');
+});
+
+test('use original Date', function() {
+    //var timekeeper = require('timekeeper');
+
+    //timekeeper.travel(Date.now() - 1000000);
+
+    ok(true, 'date modified');
+});

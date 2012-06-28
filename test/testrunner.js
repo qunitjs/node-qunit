@@ -12,7 +12,7 @@ tr.options.log = {
     // log assertions overview
     // assertions: true,
     // log expected and actual values for failed tests
-    //errors: true,
+    // errors: true,
     // log tests overview
     // tests: true,
     // log summary
@@ -36,11 +36,13 @@ chain.add('base testrunner', function() {
     }, function(err, res) {
           var stat = {
                   files: 1,
-                  tests: 2,
-                  assertions: 5,
+                  tests: 4,
+                  assertions: 7,
                   failed: 2,
-                  passed: 3
+                  passed: 5
               };
+
+        a.ok(res.runtime > 0, 'Date was modified');
         delete res.runtime;
         a.deepEqual(stat, res, 'base testrunner test');
         chain.next();
