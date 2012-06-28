@@ -5,7 +5,9 @@ test('myMethod test', function() {
 
 test('myAsyncMethod test', function() {
     ok(true, 'myAsyncMethod started');
+
     stop();
+    expect(3);
 
     myAsyncMethod(function(data) {
         equal(data, 123, 'myAsyncMethod returns right result');
@@ -19,9 +21,9 @@ test('circular reference', function() {
 });
 
 test('use original Date', function() {
-    //var timekeeper = require('timekeeper');
+    var timekeeper = require('timekeeper');
 
-    //timekeeper.travel(Date.now() - 1000000);
+    timekeeper.travel(Date.now() - 1000000);
 
     ok(true, 'date modified');
 });
