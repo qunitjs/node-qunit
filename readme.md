@@ -22,20 +22,18 @@ http://github.com/jquery/qunit
 
 ### API
 
-http://docs.jquery.com/QUnit
-
 #### Setup
     // Add a test to run.
-    QUnit.test(name, expected, test)
+    test(name, expected, test)
 
     // Add an asynchronous test to run. The test must include a call to start().
-    QUnit.asyncTest(name, expected, test)
+    asyncTest(name, expected, test)
 
     // Specify how many assertions are expected to run within a test.
-    QUnit.expect(amount);
+    expect(amount);
 
     // Separate tests into modules.
-    QUnit.module(name, lifecycle)
+    module(name, lifecycle)
 
 #### Assertions
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
@@ -64,10 +62,10 @@ http://docs.jquery.com/QUnit
 
 #### Asynchronous Testing
     // Start running tests again after the testrunner was stopped.
-    QUnit.start()
+    start()
 
     // Stop the testrunner to wait to async tests to run. Call start() to continue.
-    QUnit.stop(timeout)
+    stop(timeout)
 
 ### Usage
 
@@ -209,24 +207,24 @@ QUnit API and code which have to be tested are already loaded and attached to th
 Some tests examples
 
 
-    QUnit.test("a basic test example", function (assert) {
-      assert.ok(true, "this test is fine");
-      var value = "hello";
-      assert.equal("hello", value, "We expect value to be hello");
+    test("a basic test example", function (assert) {
+        assert.ok(true, "this test is fine");
+        var value = "hello";
+        assert.equal("hello", value, "We expect value to be hello");
     });
 
-    QUnit.module("Module A");
+    module("Module A");
 
-    QUnit.test("first test within module", 1, function (assert) {
-      assert.ok(true, "a dummy");
+    test("first test within module", 1, function (assert) {
+        assert.ok(true, "a dummy");
     });
 
-    QUnit.test("second test within module", 2, function (assert) {
-      assert.ok(true, "dummy 1 of 2");
-      assert.ok(true, "dummy 2 of 2");
+    test("second test within module", 2, function (assert) {
+        assert.ok(true, "dummy 1 of 2");
+        assert.ok(true, "dummy 2 of 2");
     });
 
-    QUnit.module("Module B", {
+    module("Module B", {
         setup: function () {
             // do some initial stuff before every test for this module
         },
@@ -235,30 +233,30 @@ Some tests examples
         }
     });
 
-    QUnit.test("some other test", function (assert) {
-      QUnit.expect(2);
-      assert.equal(true, false, "failing test");
-      assert.equal(true, true, "passing test");
+    test("some other test", function (assert) {
+        expect(2);
+        assert.equal(true, false, "failing test");
+        assert.equal(true, true, "passing test");
     });
 
-    QUnit.module("Module C", {
+    module("Module C", {
         setup: function() {
             // setup a shared environment for each test
             this.options = { test: 123 };
         }
     });
 
-    QUnit.test("this test is using shared environment", 1, function (assert) {
-      assert.deepEqual({ test: 123 }, this.options, "passing test");
+    test("this test is using shared environment", 1, function (assert) {
+        assert.deepEqual({ test: 123 }, this.options, "passing test");
     });
 
-    QUnit.test("this is an async test example", function (assert) {
-        QUnit.expect(2);
-        QUnit.stop();
+    test("this is an async test example", function (assert) {
+        expect(2);
+        stop();
         setTimeout(function () {
             assert.ok(true, "finished async test");
             assert.strictEqual(true, true, "Strict equal assertion uses ===");
-            QUnit.start();
+            start();
         }, 100);
     });
 
