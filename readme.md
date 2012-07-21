@@ -224,7 +224,7 @@ Some tests examples
         ok(true, "dummy 2 of 2");
     });
 
-    module("Module B", {
+    QUnit.module("Module B", {
         setup: function () {
             // do some initial stuff before every test for this module
         },
@@ -239,7 +239,7 @@ Some tests examples
         equal(true, true, "passing test");
     });
 
-    module("Module C", {
+    QUnit.module("Module C", {
         setup: function() {
             // setup a shared environment for each test
             this.options = { test: 123 };
