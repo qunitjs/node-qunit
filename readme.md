@@ -22,50 +22,13 @@ http://github.com/jquery/qunit
 
 ### API
 
-#### Setup
-    // Add a test to run.
-    test(name, expected, test)
+    http://api.qunitjs.com
 
-    // Add an asynchronous test to run. The test must include a call to start().
-    asyncTest(name, expected, test)
-
-    // Specify how many assertions are expected to run within a test.
-    expect(amount);
+#### The only exception
 
     // Separate tests into modules.
+    // Use `QUnit` namespace, because `module` is reserved
     QUnit.module(name, lifecycle)
-
-#### Assertions
-    // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
-    ok(state, message)
-
-    // A comparison assertion, equivalent to JUnit's assertEquals. Uses "==".
-    equal(actual, expected, message)
-
-    // A comparison assertion, equivalent to JUnit's assertEquals. Uses "!=".
-    notEqual(actual, expected, message)
-
-    // A deep recursive comparison assertion, working on primitive types, arrays and objects.
-    deepEqual(actual, expected, message)
-
-    // A deep recursive comparison assertion, working on primitive types, arrays and objects, with the result inverted, passing // when some property isn't equal.
-    notDeepEqual(actual, expected, message)
-
-    // A comparison assertion. Uses "===".
-    strictEqual(actual, expected, message)
-
-    // A stricter comparison assertion then notEqual. Uses "!==".
-    notStrictEqual(actual, expected, message)
-
-    // Assertion to test if a callback throws an exception when run.
-    throws(actual, message)
-
-#### Asynchronous Testing
-    // Start running tests again after the testrunner was stopped.
-    start()
-
-    // Stop the testrunner to wait to async tests to run. Call start() to continue.
-    stop(timeout)
 
 ### Usage
 
