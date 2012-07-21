@@ -33,7 +33,7 @@ http://github.com/jquery/qunit
     expect(amount);
 
     // Separate tests into modules.
-    module(name, lifecycle)
+    QUnit.module(name, lifecycle)
 
 #### Assertions
     // A boolean assertion, equivalent to JUnit's assertTrue. Passes if the first argument is truthy.
@@ -213,7 +213,7 @@ Some tests examples
         equal("hello", value, "We expect value to be hello");
     });
 
-    module("Module A");
+    QUnit.module("Module A");
 
     test("first test within module", 1, function (assert) {
         ok(true, "a dummy");
