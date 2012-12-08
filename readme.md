@@ -226,6 +226,8 @@ Some tests examples
 
 ### Run tests
 
+    git submodule init
+    git submodule update
     npm i
     make test
 
