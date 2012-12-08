@@ -68,6 +68,26 @@ chain.add('attach code to global', function() {
     });
 });
 
+chain.add('attach deps to global', function() {
+    tr.run({
+        deps: fixtures + '/child-code-global.js',
+        code: fixtures + '/testrunner-code.js',
+        tests: fixtures + '/child-tests-global.js',
+    }, function(err, res) {
+        var stat = {
+                files: 1,
+                tests: 1,
+                assertions: 2,
+                failed: 0,
+                passed: 2
+            };
+
+        delete res.runtime;
+        a.deepEqual(stat, res, 'attaching dependencies to global works');
+        chain.next();
+    });
+});
+
 chain.add('attach code to a namespace', function() {
     tr.run({
         code: {
