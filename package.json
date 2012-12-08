@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "QUnit testing framework for nodejs",
-    "version": "0.5.12",
+    "version": "0.5.13",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
