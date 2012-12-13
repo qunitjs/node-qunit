@@ -42,6 +42,7 @@ chain.add('base testrunner', function() {
                   passed: 5
               };
 
+        a.equal(err, null, 'no errors');
         a.ok(res.runtime > 0, 'Date was modified');
         delete res.runtime;
         a.deepEqual(stat, res, 'base testrunner test');
@@ -63,6 +64,7 @@ chain.add('attach code to global', function() {
             };
 
         delete res.runtime;
+        a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching code to global works');
         chain.next();
     });
@@ -83,6 +85,7 @@ chain.add('attach deps to global', function() {
             };
 
         delete res.runtime;
+        a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching dependencies to global works');
         chain.next();
     });
@@ -105,6 +108,7 @@ chain.add('attach code to a namespace', function() {
               };
 
         delete res.runtime;
+        a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching code to specified namespace works');
         chain.next();
     });
@@ -124,13 +128,24 @@ chain.add('async testing logs', function() {
               };
 
         delete res.runtime;
+        a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'async code testing works');
         chain.next();
     });
 });
 
+chain.add('uncaught exception', function() {
+    tr.run({
+        code: fixtures + '/uncaught-exception-code.js',
+        tests: fixtures + '/uncaught-exception-test.js',
+    }, function(err, res) {
+        a.ok(err instanceof Error, 'error was forwarded')
+        chain.next();
+    });
+});
+
 chain.add(function() {
-    console.log('\nAll tests done');
+    console.log('\nAll tests ok.');
 });
 
 chain.start();
