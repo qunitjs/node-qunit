@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "QUnit testing framework for nodejs",
-    "version": "0.5.15",
+    "version": "0.5.16",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
@@ -13,7 +13,7 @@
     },
     "keywords": ["TDD", "QUnit", "unit", "testing", "tests", "async"],
     "bin": {"qunit": "./bin/cli.js"},
-    "engines": {"node": ">=0.6.0 < 0.9.0"},
+    "engines": {"node": ">=0.6.0 < 0.11.0"},
     "scripts": {
         "test": "make test"
     },
