@@ -9,7 +9,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "http: //github.com/kof/node-qunit.git"
+        "url": "http://github.com/kof/node-qunit.git"
     },
     "keywords": ["TDD", "QUnit", "unit", "testing", "tests", "async"],
     "bin": {"qunit": "./bin/cli.js"},
