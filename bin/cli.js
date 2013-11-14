@@ -105,7 +105,7 @@ if(!code || !tests) {
 	return;
 }
 
-testrunner.run({ code: code, tests: tests }, function(err, stats) {
+testrunner.run({ code: code, tests: tests, deps: o.deps, log: o.log }, function(err, stats) {
     if (err) {
         console.error(err);
         process.exit(1);
