@@ -233,5 +233,4 @@ Some tests examples
 
 ### Coverage
 
-Jscoverage is removed due to a lot of installation problems and bad api,
-node-bunker is planned to use but not implemented yet.
+Code coverage via Istanbul. To utilize, install `istanbul` and set `coverage: true`. Coverage based on code and tests passed to `node-qunit`. 
