@@ -1,11 +1,12 @@
 {
     "name": "qunit",
     "description": "QUnit testing framework for nodejs",
-    "version": "0.5.18",
+    "version": "0.6.0",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
-        {"name": "Ashar Voultoiz"}
+        {"name": "Ashar Voultoiz"},
+        {"name": "Drew Fyock"}
     ],
     "repository": {
         "type": "git",

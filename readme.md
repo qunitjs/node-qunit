@@ -27,7 +27,7 @@ http://github.com/jquery/qunit
 #### The only exception
 
     // Separate tests into modules.
-    // Use `QUnit` namespace, because `module` is reserved
+    // Use `QUnit` namespace, because `module` is reserved for node.
     QUnit.module(name, lifecycle)
 
 ### Usage
@@ -239,4 +239,4 @@ Some tests examples
 
 ### Coverage
 
-Code coverage via Istanbul. To utilize, install `istanbul` and set `coverage: true`. Coverage calculations based on code and tests passed to `node-qunit`.
+Code coverage via Istanbul. To utilize, install `istanbul` and set option `coverage: true` or pass `--cov` parameter in the shell. Coverage calculations based on code and tests passed to `node-qunit`.
