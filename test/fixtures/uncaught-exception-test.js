@@ -1,1 +1,1 @@
-throw new Error('Some error.')
+throw new Error('Some error.');
