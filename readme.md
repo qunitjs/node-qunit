@@ -8,7 +8,7 @@ http://github.com/jquery/qunit
 
 - cli
 - testrunner api
-- test coverage via jscoverage is removed, node-bunker have to be implemented #26
+- test coverage via instanbul
 - tests inside of one testfile run synchronous, but every testfile runs parallel
 - tests from each file run in its own spawned node process
 - same API for client and server side code (original QUnit is used)
@@ -70,6 +70,12 @@ variable name to be used for the namespace object, followed by a colon:
 
                 // log global summary (all files)
                 globalSummary: true,
+
+                // log coverage
+                coverage: true,
+
+                // log global coverage (all files)
+                globalCoverage: true,
 
                 // log currently testing code file
                 testing: true
@@ -233,4 +239,4 @@ Some tests examples
 
 ### Coverage
 
-Code coverage via Istanbul. To utilize, install `istanbul` and set `coverage: true`. Coverage based on code and tests passed to `node-qunit`. 
+Code coverage via Istanbul. To utilize, install `istanbul` and set `coverage: true`. Coverage calculations based on code and tests passed to `node-qunit`.
