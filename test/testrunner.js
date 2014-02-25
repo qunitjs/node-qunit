@@ -19,6 +19,10 @@ tr.options.log = {
     // summary: true,
     // log global summary (all files)
     // globalSummary: true,
+    // log coverage
+    // coverage: true,
+    // log global coverage (all files)
+    // globalCoverage: true,
     // log currently testing code file
     testing: true
 };
@@ -34,17 +38,17 @@ chain.add('base testrunner', function() {
         code: fixtures + '/testrunner-code.js',
         tests: fixtures + '/testrunner-tests.js',
     }, function(err, res) {
-          var stat = {
-                  files: 1,
-                  tests: 4,
-                  assertions: 7,
-                  failed: 2,
-                  passed: 5
-              };
-
+        var stat = {
+            files: 1,
+            tests: 4,
+            assertions: 7,
+            failed: 2,
+            passed: 5
+        };
         a.equal(err, null, 'no errors');
         a.ok(res.runtime > 0, 'Date was modified');
         delete res.runtime;
+        delete res.coverage;
         a.deepEqual(stat, res, 'base testrunner test');
         chain.next();
     });
@@ -56,14 +60,15 @@ chain.add('attach code to global', function() {
         tests: fixtures + '/child-tests-global.js',
     }, function(err, res) {
         var stat = {
-                files: 1,
-                tests: 1,
-                assertions: 2,
-                failed: 0,
-                passed: 2
-            };
+            files: 1,
+            tests: 1,
+            assertions: 2,
+            failed: 0,
+            passed: 2
+        };
 
         delete res.runtime;
+        delete res.coverage;
         a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching code to global works');
         chain.next();
@@ -77,14 +82,15 @@ chain.add('attach deps to global', function() {
         tests: fixtures + '/child-tests-global.js',
     }, function(err, res) {
         var stat = {
-                files: 1,
-                tests: 1,
-                assertions: 2,
-                failed: 0,
-                passed: 2
-            };
+            files: 1,
+            tests: 1,
+            assertions: 2,
+            failed: 0,
+            passed: 2
+        };
 
         delete res.runtime;
+        delete res.coverage;
         a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching dependencies to global works');
         chain.next();
@@ -99,15 +105,16 @@ chain.add('attach code to a namespace', function() {
         },
         tests: fixtures + '/child-tests-namespace.js',
     }, function(err, res) {
-          var stat = {
-                  files: 1,
-                  tests: 1,
-                  assertions: 3,
-                  failed: 0,
-                  passed: 3
-              };
+        var stat = {
+            files: 1,
+            tests: 1,
+            assertions: 3,
+            failed: 0,
+            passed: 3
+        };
 
         delete res.runtime;
+        delete res.coverage;
         a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'attaching code to specified namespace works');
         chain.next();
@@ -119,15 +126,16 @@ chain.add('async testing logs', function() {
         code: fixtures + '/async-code.js',
         tests: fixtures + '/async-test.js',
     }, function(err, res) {
-          var stat = {
-                  files: 1,
-                  tests: 4,
-                  assertions: 6,
-                  failed: 0,
-                  passed: 6
-              };
+        var stat = {
+            files: 1,
+            tests: 4,
+            assertions: 6,
+            failed: 0,
+            passed: 6
+        };
 
         delete res.runtime;
+        delete res.coverage;
         a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'async code testing works');
         chain.next();
@@ -139,7 +147,26 @@ chain.add('uncaught exception', function() {
         code: fixtures + '/uncaught-exception-code.js',
         tests: fixtures + '/uncaught-exception-test.js',
     }, function(err, res) {
-        a.ok(err instanceof Error, 'error was forwarded')
+        a.ok(err instanceof Error, 'error was forwarded');
+        chain.next();
+    });
+});
+
+chain.add('coverage', function() {
+    tr.options.coverage = true;
+    tr.run({
+        code: fixtures + '/testrunner-code.js',
+        tests: fixtures + '/testrunner-tests.js',
+    }, function(err, res) {
+        var coverage = {
+            files: 1,
+            statements: { covered: 4, total: 5 },
+            branches: { covered: 0, total: 0 },
+            functions: { covered: 2, total: 3 },
+            lines: { covered: 4, total: 5 }
+        };
+        a.equal(err, null, 'no errors');
+        a.deepEqual(coverage, res.coverage, 'Coverage calculated');
         chain.next();
     });
 });
