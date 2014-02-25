@@ -1,7 +1,7 @@
 test('myMethod test', function() {
     equal(myMethod(), 123, 'myMethod returns right result');
     equal(myMethod(), 321, 'this should trigger an error');
-})
+});
 
 test('myAsyncMethod test', function() {
     ok(true, 'myAsyncMethod started');
@@ -14,7 +14,7 @@ test('myAsyncMethod test', function() {
         equal(data, 321, 'this should trigger an error');
         start();
     });
-})
+});
 
 test('circular reference', function() {
     equal(global, global, 'test global');

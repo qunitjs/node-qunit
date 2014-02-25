@@ -8,7 +8,7 @@ http://github.com/jquery/qunit
 
 - cli
 - testrunner api
-- test coverage via instanbul
+- test coverage via istanbul
 - tests inside of one testfile run synchronous, but every testfile runs parallel
 - tests from each file run in its own spawned node process
 - same API for client and server side code (original QUnit is used)
