@@ -9,7 +9,7 @@ test('myAsyncMethod test', function() {
     expect(2);
 
     myAsyncMethod(function(data) {
-	equal(data, 123, 'myAsyncMethod returns right result');
-	start();
+        equal(data, 123, 'myAsyncMethod returns right result');
+        start();
     });
 });

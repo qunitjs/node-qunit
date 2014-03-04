@@ -4,6 +4,10 @@ exports.myMethod = function() {
 
 exports.myAsyncMethod = function(callback) {
     setTimeout(function() {
-	callback(123);
+	       callback(123);
     }, 10000);
+};
+
+exports.myOtherMethod = function(callback) {
+    return 321
 };
