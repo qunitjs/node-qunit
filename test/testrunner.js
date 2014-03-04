@@ -155,18 +155,26 @@ chain.add('uncaught exception', function() {
 chain.add('coverage', function() {
     tr.options.coverage = true;
     tr.run({
-        code: fixtures + '/testrunner-code.js',
-        tests: fixtures + '/testrunner-tests.js',
+	code: fixtures + '/coverage-code.js',
+	tests: fixtures + '/coverage-test.js'
     }, function(err, res) {
-        var coverage = {
+	var stat = {
             files: 1,
-            statements: { covered: 4, total: 5 },
-            branches: { covered: 0, total: 0 },
-            functions: { covered: 2, total: 3 },
-            lines: { covered: 4, total: 5 }
+	    tests: 2,
+	    assertions: 3,
+	    failed: 0,
+	    passed: 3,
+	    coverage: {
+		files: 1,
+		statements: { covered: 4, total: 5 },
+		branches: { covered: 0, total: 0 },
+		functions: { covered: 2, total: 3 },
+		lines: { covered: 4, total: 5 }
+	    }
         };
+	delete res.runtime;
         a.equal(err, null, 'no errors');
-        a.deepEqual(coverage, res.coverage, 'Coverage calculated');
+	a.deepEqual(stat, res, 'coverage code testing works');
         chain.next();
     });
 });
@@ -176,4 +184,3 @@ chain.add(function() {
 });
 
 chain.start();
-
