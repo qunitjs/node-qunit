@@ -1,5 +1,5 @@
 {
-    "browser": true,
+    "expr": true,
     "jquery": true,
     "node": true
 }
