@@ -1,3 +1,3 @@
 exports.whereFrom = function() {
-  return "I was required as a namespace object";
+    return "I was required as a namespace object";
 };
