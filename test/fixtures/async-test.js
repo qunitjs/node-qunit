@@ -1,5 +1,5 @@
 test('1', 1, function (){
-  ok(true, "tests intermixing sync and async tests #1");
+    ok(true, "tests intermixing sync and async tests #1");
 });
 
 test('a', 2, function(){
@@ -13,7 +13,7 @@ test('a', 2, function(){
 });
 
 test('2', 1, function (){
-  ok(true, "tests intermixing sync and async tests #2");
+    ok(true, "tests intermixing sync and async tests #2");
 });
 
 test('b', 2, function(){
