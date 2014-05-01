@@ -22,7 +22,8 @@
         "underscore": "^1.6.0",
         "argsparser": "^0.0.6",
         "cli-table": "^0.3.0",
-        "tracejs": "^0.1.8"
+        "tracejs": "^0.1.8",
+        "qunitjs": "1.10.0"
     },
     "devDependencies": {
         "chainer": "^0.0.5",
