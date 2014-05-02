@@ -1,7 +1,7 @@
 {
     "name": "qunit",
     "description": "QUnit testing framework for nodejs",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "author": "Oleg Slobodskoi <oleg008@gmail.com>",
     "contributors": [
         {"name": "Jonathan Buchanan"},
@@ -16,7 +16,7 @@
     "bin": {"qunit": "./bin/cli.js"},
     "engines": {"node": ">=0.6.0 < 0.11.0"},
     "scripts": {
-        "test": "make test"
+        "test": "node ./test/testrunner.js"
     },
     "dependencies": {
         "underscore": "^1.6.0",
