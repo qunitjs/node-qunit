@@ -1,41 +1,59 @@
 {
-    "name": "qunit",
-    "description": "QUnit testing framework for nodejs",
-    "version": "0.6.4",
-    "author": "Oleg Slobodskoi <oleg008@gmail.com>",
-    "contributors": [
-        {"name": "Jonathan Buchanan"},
-        {"name": "Ashar Voultoiz"},
-        {"name": "Drew Fyock"}
-    ],
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/kof/node-qunit.git"
+  "name": "qunit",
+  "description": "QUnit testing framework for nodejs",
+  "version": "0.7.0",
+  "author": "Oleg Slobodskoi <oleg008@gmail.com>",
+  "contributors": [
+    {
+      "name": "Jonathan Buchanan"
     },
-    "keywords": ["TDD", "QUnit", "unit", "testing", "tests", "async"],
-    "bin": {"qunit": "./bin/cli.js"},
-    "engines": {"node": ">=0.6.0 < 0.11.0"},
-    "scripts": {
-        "test": "node ./test/testrunner.js"
+    {
+      "name": "Ashar Voultoiz"
     },
-    "dependencies": {
-        "underscore": "^1.6.0",
-        "argsparser": "^0.0.6",
-        "cli-table": "^0.3.0",
-        "tracejs": "^0.1.8",
-        "qunitjs": "1.10.0"
-    },
-    "devDependencies": {
-        "chainer": "^0.0.5",
-        "timekeeper": "^0.0.4"
-    },
-    "optionalDependencies": {
-        "istanbul": "^0.2.4"
-    },
-    "licenses": [
-        {
-           "type": "MIT",
-           "url": "http: //www.opensource.org/licenses/mit-license.php"
-        }
-    ]
+    {
+      "name": "Drew Fyock"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kof/node-qunit.git"
+  },
+  "keywords": [
+    "TDD",
+    "QUnit",
+    "unit",
+    "testing",
+    "tests",
+    "async"
+  ],
+  "bin": {
+    "qunit": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">=0.6.0 < 0.12.0"
+  },
+  "scripts": {
+    "test": "node --harmony ./test/testrunner.js"
+  },
+  "dependencies": {
+    "argsparser": "^0.0.6",
+    "cli-table": "^0.3.0",
+    "co": "^3.0.6",
+    "qunitjs": "1.10.0",
+    "tracejs": "^0.1.8",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "chainer": "^0.0.5",
+    "timekeeper": "^0.0.4"
+  },
+  "optionalDependencies": {
+    "istanbul": "https://github.com/gotwarlost/istanbul/tarball/harmony"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http: //www.opensource.org/licenses/mit-license.php"
+    }
+  ]
 }

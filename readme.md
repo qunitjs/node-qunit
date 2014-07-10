@@ -15,6 +15,7 @@ http://github.com/jquery/qunit
 - the simplest API of the world, especially for asynchronous testing
 - you can write tests in TDD or BDD style depending on your task and test type
 - you can run the same tests in browser if there is no dependencies to node
+- generators support
 
 ### Installation
 
@@ -176,7 +177,7 @@ QUnit API and code which have to be tested are already loaded and attached to th
 Some tests examples
 
 
-    test("a basic test example", function (assert) {
+    test("a basic test example", function () {
         ok(true, "this test is fine");
         var value = "hello";
         equal("hello", value, "We expect value to be hello");
@@ -184,11 +185,11 @@ Some tests examples
 
     QUnit.module("Module A");
 
-    test("first test within module", 1, function (assert) {
+    test("first test within module", 1, function () {
         ok(true, "a dummy");
     });
 
-    test("second test within module", 2, function (assert) {
+    test("second test within module", 2, function () {
         ok(true, "dummy 1 of 2");
         ok(true, "dummy 2 of 2");
     });
@@ -202,7 +203,7 @@ Some tests examples
         }
     });
 
-    test("some other test", function (assert) {
+    test("some other test", function () {
         expect(2);
         equal(true, false, "failing test");
         equal(true, true, "passing test");
@@ -215,11 +216,11 @@ Some tests examples
         }
     });
 
-    test("this test is using shared environment", 1, function (assert) {
+    test("this test is using shared environment", 1, function () {
         deepEqual({ test: 123 }, this.options, "passing test");
     });
 
-    test("this is an async test example", function (assert) {
+    test("this is an async test example", function () {
         expect(2);
         stop();
         setTimeout(function () {
@@ -229,6 +230,12 @@ Some tests examples
         }, 100);
     });
 
+### Generators support
+
+    test("my async test with generators", function* () {
+        var data = yield asyncFn();
+        equal(data, {a: 1}, 'generators work');
+    });
 
 ### Run tests
 

@@ -3,7 +3,8 @@ var a = require('assert'),
     _ = require('underscore');
 
 var tr = require('../lib/testrunner'),
-    log = require('../lib/log');
+    log = require('../lib/log'),
+    generators = require('../lib/generators');
 
 var fixtures = __dirname + '/fixtures',
     chain = chainer();
@@ -175,9 +176,32 @@ chain.add('coverage', function() {
         delete res.runtime;
         a.equal(err, null, 'no errors');
         a.deepEqual(stat, res, 'coverage code testing works');
+        tr.options.coverage = false;
         chain.next();
     });
 });
+
+if (generators.support) {
+    chain.add('generators', function() {
+        tr.run({
+            code: fixtures + '/generators-code.js',
+            tests: fixtures + '/generators-test.js'
+        }, function(err, res) {
+            var stat = {
+                files: 1,
+                tests: 1,
+                assertions: 1,
+                failed: 0,
+                passed: 1
+            };
+            delete res.runtime;
+            delete res.coverage;
+            a.equal(err, null, 'no errors');
+            a.deepEqual(stat, res, 'coverage code testing works');
+            chain.next();
+        });
+    });
+}
 
 chain.add(function() {
     console.log('\nAll tests ok.');
