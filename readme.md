@@ -29,7 +29,7 @@ $ npm i qunit
 
 #### The only exception
 
-```javscript
+```javascript
 // Separate tests into modules.
 // Use `QUnit` namespace, because `module` is reserved for node.
 QUnit.module(name, lifecycle)
