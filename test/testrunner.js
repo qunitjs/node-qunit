@@ -153,6 +153,16 @@ chain.add('uncaught exception', function() {
     });
 });
 
+chain.add('infinite loop', function() {
+    tr.run({
+        code: fixtures + '/infinite-loop-code.js',
+        tests: fixtures + '/infinite-loop-test.js',
+    }, function(err, res) {
+        a.ok(err instanceof Error, 'error was forwarded');
+        chain.next();
+    });
+});
+
 chain.add('coverage', function() {
     tr.options.coverage = true;
     tr.run({

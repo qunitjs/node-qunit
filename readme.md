@@ -97,7 +97,10 @@ var testrunner = require("qunit");
     deps: null,
 
     // define namespace your code will be attached to on global['your namespace']
-    namespace: null
+    namespace: null,
+
+    // max amount of ms child can be blocked, after that we assume running an infinite loop
+    maxBlockDuration: 1000
 }
 ```
 
