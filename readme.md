@@ -100,7 +100,7 @@ var testrunner = require("qunit");
     namespace: null,
 
     // max amount of ms child can be blocked, after that we assume running an infinite loop
-    maxBlockDuration: 1000
+    maxBlockDuration: 2000
 }
 ```
 
