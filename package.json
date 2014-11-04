@@ -1,7 +1,7 @@
 {
   "name": "qunit",
   "description": "QUnit testing framework for nodejs",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "author": "Oleg Slobodskoi <oleg008@gmail.com>",
   "contributors": [
     {
@@ -39,6 +39,7 @@
     "argsparser": "^0.0.6",
     "cli-table": "^0.3.0",
     "co": "^3.0.6",
+    "freeport": "^1.0.3",
     "qunitjs": "1.10.0",
     "tracejs": "^0.1.8",
     "underscore": "^1.6.0"
