@@ -1,6 +1,6 @@
 ## QUnit testing framework for nodejs.
 
-[![Build Status](https://travis-ci.org/olegabr/node-qunit.png?branch=master)](https://travis-ci.org/olegabr/node-qunit)
+[![Build Status](https://travis-ci.org/kof/node-qunit.png?branch=master)](https://travis-ci.org/kof/node-qunit)
 
 http://qunitjs.com
 
