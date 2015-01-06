@@ -244,4 +244,10 @@ Some tests examples
 
 ### Coverage
 
-Code coverage via Istanbul. To utilize, install `istanbul` and set option `coverage: true` or give a path where to store report `coverage: {dir: "coverage/path"}` or pass `--cov` parameter in the shell. Coverage calculations based on code and tests passed to `node-qunit`.
+Code coverage via Istanbul.
+
+To utilize, install `istanbul` and set option `coverage: true` or give a path where to store report `coverage: {dir: "coverage/path"}` or pass `--cov` parameter in the shell.
+
+To specify the format of coverage report pass reporters array to the coverage options: `coverage: {reporters: ['lcov', 'json']}` (default)
+
+Coverage calculations based on code and tests passed to `node-qunit`.
