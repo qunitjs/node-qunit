@@ -30,7 +30,7 @@
     "qunit": "./bin/cli.js"
   },
   "engines": {
-    "node": ">=0.6.0 < 0.12.0"
+    "node": ">=0.6.0"
   },
   "scripts": {
     "test": "node --harmony ./test/testrunner.js"
