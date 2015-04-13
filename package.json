@@ -1,7 +1,7 @@
 {
   "name": "qunit",
   "description": "QUnit testing framework for nodejs",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "author": "Oleg Slobodskoi <oleg008@gmail.com>",
   "contributors": [
     {
@@ -30,7 +30,7 @@
     "qunit": "./bin/cli.js"
   },
   "engines": {
-    "node": ">=0.6.0 < 0.12.0"
+    "node": ">=0.6.0 < 0.13.0"
   },
   "scripts": {
     "test": "node --harmony ./test/testrunner.js"
