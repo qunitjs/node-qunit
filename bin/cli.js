@@ -8,7 +8,7 @@ var root = __dirname + '/..',
     args = argsparser.parse(),
     testrunner = require(root),
     o = testrunner.options,
-    code, tests,
+    code, tests, debug,
     help;
 
 help = ''
@@ -17,6 +17,7 @@ help = ''
     + '\nOptions:'
     + '\n -c, --code path to code you want to test'
     + '\n -t, --tests path to tests (space separated)'
+    + '\n --debug debugging port'
     + '\n -d, --deps dependency paths - files required before code (space separated)'
     + '\n -l, --log logging options, json have to be used'
     + '\n --cov create tests coverage report'
@@ -65,6 +66,9 @@ for (var key in args) {
             // of QUnit in browsers.
             tests = args[key];
             break;
+        case '--debug':
+            debug = args[key];
+            break;
         case '-d':
         case '--deps':
             o.deps = args[key];
@@ -105,7 +109,11 @@ if(!code || !tests) {
 	return;
 }
 
-testrunner.run({ code: code, tests: tests, deps: o.deps, log: o.log }, function(err, stats) {
+debug = debug || process.execArgv.reduce(function (prevArg, curArg) {
+    return prevArg || curArg.indexOf('--debug') === 0;
+}, false);
+
+testrunner.run({ code: code, tests: tests, deps: o.deps, log: o.log, debug: debug }, function(err, stats) {
     if (err) {
         console.error(err);
         process.exit(1);
