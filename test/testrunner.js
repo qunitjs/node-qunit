@@ -191,6 +191,40 @@ chain.add('coverage', function() {
     });
 });
 
+chain.add('coverage-multiple', function() {
+    tr.options.coverage = true;
+    tr.run({
+        code: fixtures + '/coverage-multiple-code.js',
+        tests: fixtures + '/coverage-test.js',
+        coverage: {
+            files: [
+                fixtures + '/coverage-multiple-code.js',
+                fixtures + '/coverage-code.js'
+            ],
+        },
+    }, function(err, res) {
+        var stat = {
+            files: 1,
+            tests: 2,
+            assertions: 3,
+            failed: 0,
+            passed: 3,
+            coverage: {
+                files: 1,
+                statements: { covered: 7, total: 8 },
+                branches: { covered: 0, total: 0 },
+                functions: { covered: 3, total: 4 },
+                lines: { covered: 7, total: 8 }
+            }
+        };
+        delete res.runtime;
+        a.equal(err, null, 'no errors');
+        a.deepEqual(stat, res, 'coverage multiple code testing works');
+        tr.options.coverage = false;
+        chain.next();
+    });
+});
+
 if (generators.support) {
     chain.add('generators', function() {
         tr.run({
