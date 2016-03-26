@@ -20,6 +20,7 @@ help = ''
     + '\n -d, --deps dependency paths - files required before code (space separated)'
     + '\n -l, --log logging options, json have to be used'
     + '\n --cov create tests coverage report'
+    + '\n --timeout max block duration (in ms)'
     + '\n -h, --help show this help'
     + '\n -v, --version show module version'
     + '\n';
@@ -83,6 +84,9 @@ for (var key in args) {
         case '-p':
         case '--paths':
             o.paths = args[key];
+            break;
+        case '--timeout':
+            o.maxBlockDuration = args[key];
             break;
         case '-v':
         case '--version':
