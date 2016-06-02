@@ -1,15 +1,15 @@
-test('myMethod test', function() {
-    equal(myMethod(), 123, 'myMethod returns right result');
+test('myMethod test', function(assert) {
+    assert.equal(myMethod(), 123, 'myMethod returns right result');
 });
 
-test('myAsyncMethod test', function() {
-    ok(true, 'myAsyncMethod started');
+test('myAsyncMethod test', function(assert) {
+    assert.ok(true, 'myAsyncMethod started');
 
-    stop();
-    expect(2);
+    var done = assert.async();
+    assert.expect(2);
 
     myAsyncMethod(function(data) {
-        equal(data, 123, 'myAsyncMethod returns right result');
-        start();
+        assert.equal(data, 123, 'myAsyncMethod returns right result');
+        done();
     });
 });
