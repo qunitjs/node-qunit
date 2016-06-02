@@ -39,7 +39,7 @@
     "argsparser": "^0.0.6",
     "cli-table": "^0.3.0",
     "co": "^3.0.6",
-    "qunitjs": "1.10.0",
+    "qunitjs": "1.23.1",
     "tracejs": "^0.1.8",
     "underscore": "^1.6.0"
   },
