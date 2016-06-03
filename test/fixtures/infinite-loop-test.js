@@ -1,3 +1,3 @@
-QUnit.test('infinite loop', function(assert) {
+test('infinite loop', function(assert) {
     assert.ok(true)
 })

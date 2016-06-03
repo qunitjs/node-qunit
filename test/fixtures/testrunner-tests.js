@@ -1,9 +1,9 @@
-QUnit.test('myMethod test', function(assert) {
+test('myMethod test', function(assert) {
     assert.equal(myMethod(), 123, 'myMethod returns right result');
     assert.equal(myMethod(), 321, 'this should trigger an error');
 });
 
-QUnit.test('myAsyncMethod test', function(assert) {
+test('myAsyncMethod test', function(assert) {
     var done = assert.async();
     assert.expect(3);
 
@@ -16,11 +16,11 @@ QUnit.test('myAsyncMethod test', function(assert) {
     });
 });
 
-QUnit.test('circular reference', function(assert) {
+test('circular reference', function(assert) {
     assert.equal(global, global, 'test global');
 });
 
-QUnit.test('use original Date', function(assert) {
+test('use original Date', function(assert) {
     var timekeeper = require('timekeeper');
 
     timekeeper.travel(Date.now() - 1000000);

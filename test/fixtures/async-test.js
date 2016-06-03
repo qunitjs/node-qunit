@@ -1,8 +1,8 @@
-QUnit.test('1', 1, function (assert){
+test('1', 1, function (assert){
     assert.ok(true, "tests intermixing sync and async tests #1");
 });
 
-QUnit.test('a', 2, function(assert){
+test('a', 2, function(assert){
     var done = assert.async();
 
     setTimeout(function() {
@@ -12,11 +12,11 @@ QUnit.test('a', 2, function(assert){
     }, 10000);
 });
 
-QUnit.test('2', 1, function (){
+test('2', 1, function (){
     assert.ok(true, "tests intermixing sync and async tests #2");
 });
 
-QUnit.test('b', 2, function(assert){
+test('b', 2, function(assert){
     var done = assert.async();
 
     setTimeout(function() {

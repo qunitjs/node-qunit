@@ -1,8 +1,8 @@
-QUnit.test('myMethod test', function(assert) {
+test('myMethod test', function(assert) {
     assert.equal(myMethod(), 123, 'myMethod returns right result');
 });
 
-QUnit.test('myAsyncMethod test', function(assert) {
+test('myAsyncMethod test', function(assert) {
     assert.ok(true, 'myAsyncMethod started');
 
     var done = assert.async();
