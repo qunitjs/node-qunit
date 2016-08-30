@@ -1,4 +1,4 @@
-test('generators', function* () {
+test('generators', function* (assert) {
     var data = yield thunk();
-    deepEqual(data, {a: 1}, 'woks');
+    assert.deepEqual(data, {a: 1}, 'woks');
 });

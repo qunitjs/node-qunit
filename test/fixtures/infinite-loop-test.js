@@ -1,3 +1,3 @@
-test('infinite loop', function() {
-    ok(true)
+test('infinite loop', function(assert) {
+    assert.ok(true)
 })
