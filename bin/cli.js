@@ -102,6 +102,10 @@ for (var key in args) {
             util.print(help);
             return;
     }
+
+    if(key[0] === '-') {
+        process.env['qunit.args.' + key.split('-').pop()] = args[key];
+    }
 }
 if(!code || !tests) {
 	util.print(help);
