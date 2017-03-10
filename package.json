@@ -51,6 +51,6 @@
     "timekeeper": "^0.0.4"
   },
   "optionalDependencies": {
-    "istanbul": "https://github.com/gotwarlost/istanbul/tarball/harmony"
+    "istanbul": "0.3.9"
   }
 }
