@@ -38,9 +38,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "argsparser": "^0.0.6",
+    "argsparser": "^0.0.7",
     "cli-table": "^0.3.0",
-    "co": "^3.0.6",
+    "co": "^4.6.0",
     "qunitjs": "1.23.1",
     "tracejs": "^0.1.8",
     "underscore": "^1.6.0"
@@ -48,9 +48,9 @@
   "devDependencies": {
     "chainer": "^0.0.5",
     "eslint": "^3.17.1",
-    "timekeeper": "^0.0.4"
+    "timekeeper": "^1.0.0"
   },
   "optionalDependencies": {
-    "istanbul": "0.3.9"
+    "istanbul": "0.4.5"
   }
 }
