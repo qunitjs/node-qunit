@@ -9,7 +9,7 @@ test('a', 2, function(assert){
         assert.ok(true, 'test a1');
         assert.ok(true, 'test a2');
         done();
-    }, 10000);
+    }, 100);
 });
 
 test('2', 1, function (){

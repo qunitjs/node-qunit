@@ -5,7 +5,7 @@ exports.myMethod = function() {
 exports.myAsyncMethod = function(callback) {
     setTimeout(function() {
         callback(123);
-    }, 10000);
+    }, 100);
 };
 
 exports.myOtherMethod = function(callback) {
