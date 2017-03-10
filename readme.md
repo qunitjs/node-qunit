@@ -192,21 +192,21 @@ QUnit API and code which have to be tested are already loaded and attached to th
 Some tests examples
 
 ```javascript
-test("a basic test example", function () {
-    ok(true, "this test is fine");
+test("a basic test example", function (assert) {
+    assert.ok(true, "this test is fine");
     var value = "hello";
-    equal("hello", value, "We expect value to be hello");
+    assert.equal("hello", value, "We expect value to be hello");
 });
 
 QUnit.module("Module A");
 
-test("first test within module", 1, function () {
-    ok(true, "a dummy");
+test("first test within module", function (assert) {
+    assert.ok(true, "a dummy");
 });
 
-test("second test within module", 2, function () {
-    ok(true, "dummy 1 of 2");
-    ok(true, "dummy 2 of 2");
+test("second test within module", function (assert) {
+    assert.ok(true, "dummy 1 of 2");
+    assert.ok(true, "dummy 2 of 2");
 });
 
 QUnit.module("Module B", {
@@ -218,10 +218,10 @@ QUnit.module("Module B", {
     }
 });
 
-test("some other test", function () {
-    expect(2);
-    equal(true, false, "failing test");
-    equal(true, true, "passing test");
+test("some other test", function (assert) {
+    assert.expect(2);
+    assert.equal(true, false, "failing test");
+    assert.equal(true, true, "passing test");
 });
 
 QUnit.module("Module C", {
@@ -231,17 +231,17 @@ QUnit.module("Module C", {
     }
 });
 
-test("this test is using shared environment", 1, function () {
-    deepEqual({ test: 123 }, this.options, "passing test");
+test("this test is using shared environment", function (assert) {
+    assert.deepEqual({ test: 123 }, this.options, "passing test");
 });
 
-test("this is an async test example", function () {
-    expect(2);
-    stop();
+test("this is an async test example", function (assert) {
+    var done = assert.stop();
+    assert.expect(2);
     setTimeout(function () {
-        ok(true, "finished async test");
-        strictEqual(true, true, "Strict equal assertion uses ===");
-        start();
+        assert.ok(true, "finished async test");
+        assert.strictEqual(true, true, "Strict equal assertion uses ===");
+        done();
     }, 100);
 });
 ```
@@ -249,17 +249,16 @@ test("this is an async test example", function () {
 ### Generators support
 
 ```javascript
-test("my async test with generators", function* () {
+test("my async test with generators", function* (assert) {
     var data = yield asyncFn();
-    equal(data, {a: 1}, 'generators work');
+    assert.equal(data, {a: 1}, 'generators work');
 });
 ```
 
 ### Run tests
 
 ```bash
-$ npm i
-$ npm test
+$ npm it
 ```
 
 ### Coverage
