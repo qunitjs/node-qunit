@@ -12,7 +12,7 @@ test('a', 2, function(assert){
     }, 100);
 });
 
-test('2', 1, function (){
+test('2', 1, function (assert){
     assert.ok(true, "tests intermixing sync and async tests #2");
 });
 

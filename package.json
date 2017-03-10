@@ -34,7 +34,8 @@
     "node": ">=0.6.0 < 8.0"
   },
   "scripts": {
-    "test": "node --harmony ./test/testrunner.js"
+    "test": "node --harmony ./test/testrunner.js && eslint .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "argsparser": "^0.0.6",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "chainer": "^0.0.5",
+    "eslint": "^3.17.1",
     "timekeeper": "^0.0.4"
   },
   "optionalDependencies": {

@@ -8,6 +8,6 @@ exports.myAsyncMethod = function(callback) {
     }, 100);
 };
 
-exports.myOtherMethod = function(callback) {
+exports.myOtherMethod = function() {
     return 321;
 };

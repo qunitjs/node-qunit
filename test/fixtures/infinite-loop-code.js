@@ -1,1 +1,2 @@
-while(1) {}
+// eslint-disable-next-line no-constant-condition, no-empty
+while(1) {}

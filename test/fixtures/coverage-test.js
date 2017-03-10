@@ -1,3 +1,4 @@
+/* global myMethod, myAsyncMethod */
 test('myMethod test', function(assert) {
     assert.equal(myMethod(), 123, 'myMethod returns right result');
 });

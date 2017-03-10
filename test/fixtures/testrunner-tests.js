@@ -1,3 +1,4 @@
+/* global myMethod, myAsyncMethod */
 test('myMethod test', function(assert) {
     assert.equal(myMethod(), 123, 'myMethod returns right result');
     assert.equal(myMethod(), 321, 'this should trigger an error');

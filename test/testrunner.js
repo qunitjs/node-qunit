@@ -1,6 +1,5 @@
 var a = require('assert'),
-    chainer = require('chainer'),
-    _ = require('underscore');
+    chainer = require('chainer');
 
 var tr = require('../lib/testrunner'),
     log = require('../lib/log'),
@@ -147,7 +146,7 @@ chain.add('uncaught exception', function() {
     tr.run({
         code: fixtures + '/uncaught-exception-code.js',
         tests: fixtures + '/uncaught-exception-test.js',
-    }, function(err, res) {
+    }, function(err) {
         a.ok(err instanceof Error, 'error was forwarded');
         chain.next();
     });
@@ -157,7 +156,7 @@ chain.add('infinite loop', function() {
     tr.run({
         code: fixtures + '/infinite-loop-code.js',
         tests: fixtures + '/infinite-loop-test.js',
-    }, function(err, res) {
+    }, function(err) {
         a.ok(err instanceof Error, 'error was forwarded');
         chain.next();
     });
