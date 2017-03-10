@@ -34,7 +34,7 @@
     "node": ">=0.6.0 < 8.0"
   },
   "scripts": {
-    "test": "node --harmony ./test/testrunner.js && eslint .",
+    "test": "node ./test/testrunner.js && eslint .",
     "lint": "eslint ."
   },
   "dependencies": {
