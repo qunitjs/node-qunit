@@ -18,6 +18,7 @@
     "type": "git",
     "url": "https://github.com/kof/node-qunit.git"
   },
+  "license": "MIT",
   "keywords": [
     "TDD",
     "QUnit",
@@ -49,11 +50,5 @@
   },
   "optionalDependencies": {
     "istanbul": "https://github.com/gotwarlost/istanbul/tarball/harmony"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://opensource.org/licenses/mit-license.php"
-    }
-  ]
+  }
 }
