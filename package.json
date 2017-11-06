@@ -1,5 +1,5 @@
 {
-  "name": "qunit",
+  "name": "node-qunit",
   "description": "QUnit testing framework for Node.js",
   "version": "1.0.0",
   "author": "Oleg Slobodskoi <oleg008@gmail.com>",
