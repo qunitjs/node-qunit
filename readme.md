@@ -1,10 +1,10 @@
 ## QUnit testing framework for Node.js
 
-[![Build Status](https://travis-ci.org/qunitjs/node-qunit.svg?branch=master)](https://travis-ci.org/qunitjs/node-qunit) [![npm](https://img.shields.io/npm/v/qunit.svg?style=flat)](https://www.npmjs.com/package/qunit)
+[![Build Status](https://travis-ci.org/qunitjs/node-qunit.svg?branch=master)](https://travis-ci.org/qunitjs/node-qunit) [![npm](https://img.shields.io/npm/v/node-qunit.svg?style=flat)](https://www.npmjs.com/package/node-qunit)
 
 https://qunitjs.com
 
-https://github.com/jquery/qunit
+https://github.com/qunitjs/qunit
 
 ### Features
 
@@ -22,8 +22,17 @@ https://github.com/jquery/qunit
 ### Installation
 
 ```bash
-$ npm i qunit
+$ npm i node-qunit
 ```
+
+#### Package Name Up to 1.0.0
+
+Up until version 1.0.0, this package was published under the name `qunit`. That
+name is now used by the official QUnit package and CLI, and this package will be
+published as `node-qunit` from version 1.0.0 onward.
+
+Additionally, prior to 1.0.0, the `node-qunit` package was a different project
+that was deprecated and now lives under the name [`qnit`](https://www.npmjs.com/package/qnit).
 
 ### API
 
