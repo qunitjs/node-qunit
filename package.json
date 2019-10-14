@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "chainer": "^0.0.5",
-    "eslint": "^3.17.1",
+    "eslint": "^6.5.1",
     "timekeeper": "^1.0.0"
   },
   "optionalDependencies": {
