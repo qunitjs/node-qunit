@@ -36,7 +36,7 @@ that was deprecated and now lives under the name [`qnit`](https://www.npmjs.com/
 
 ### API
 
-    http://api.qunitjs.com
+    https://api.qunitjs.com
 
 #### The only exception
 
@@ -69,7 +69,7 @@ $ qunit -c code:./code.js -d utils:utilmodule -t ./time.js
 #### via api
 
 ```javascript
-var testrunner = require("qunit");
+var testrunner = require("node-qunit");
 
 // Defaults:
 {
