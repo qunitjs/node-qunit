@@ -1,6 +1,6 @@
-## QUnit testing framework for Node.js
-
 [![Build Status](https://travis-ci.com/qunitjs/node-qunit.svg?branch=master)](https://travis-ci.com/qunitjs/node-qunit) [![npm](https://img.shields.io/npm/v/node-qunit.svg?style=flat)](https://www.npmjs.com/package/node-qunit)
+
+## QUnit testing framework for Node.js
 
 https://qunitjs.com
 
