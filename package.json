@@ -37,14 +37,14 @@
     "node": ">=0.6.0 < 8.0"
   },
   "scripts": {
-    "test": "node ./test/testrunner.js && eslint .",
+    "test": "node test/testrunner.js && eslint .",
     "lint": "eslint ."
   },
   "dependencies": {
     "argsparser": "^0.0.7",
     "cli-table": "^0.3.0",
     "co": "^4.6.0",
-    "qunitjs": "2.1.1",
+    "qunit": "2.4.1",
     "tracejs": "^0.1.8",
     "underscore": "^1.6.0"
   },
