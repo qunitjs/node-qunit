@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.1
+
+Fixed:
+
+* Switch from [`QUnit.load()`](https://qunitjs.com/api/QUnit/load/) to `QUnit.start()`, to fix a deprecation
+  warning in QUnit 2.21 and later. (Timo Tijhof) [77f00c47a4](https://github.com/qunitjs/node-qunit/commit/77f00c47a4c40677de2f6ef3d6d2e6edf47cf118)
+
 ## v2.0.0
 
 Changed:
