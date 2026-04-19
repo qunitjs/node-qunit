@@ -24,7 +24,7 @@
   "license": "MIT",
   "keywords": [
     "TDD",
-    "QUnit",
+    "qunit",
     "unit",
     "testing",
     "tests",
