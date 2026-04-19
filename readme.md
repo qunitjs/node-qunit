@@ -36,7 +36,7 @@ that was deprecated and now lives under the name [`qnit`](https://www.npmjs.com/
 
 ### API
 
-    https://api.qunitjs.com
+https://qunitjs.com/api/
 
 #### The only exception
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.2
+
+Fixed:
+
+* Fix undefined `util.print()` when using `--version` or passing no tests (Timo Tijhof) [53288c9b47](https://github.com/qunitjs/node-qunit/commit/53288c9b47c5a3fe6b52eabfc7cd9a94ac1c4acd)
+
 ## v2.0.1
 
 Fixed:
